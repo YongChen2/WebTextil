@@ -8,7 +8,7 @@ export const siteUrl = (
 ).replace(/\/$/, "");
 
 /** Obchodní značka zobrazovaná na webu. */
-export const brand = "WebTextil";
+export const brand = "TopProfit Textil";
 
 /** Právní název provozovatele. */
 export const name = "TPT funding s.r.o.";
@@ -32,7 +32,7 @@ export const email = "info@example.cz";
 export const tagline = "Potisk, našívky a úpravy oděvů na míru";
 
 export const description =
-  "WebTextil – malá textilní dílna v Praze. Potisk triček, výroba našívek a úpravy sak na míru, od jednoho kusu po malé série.";
+  "TopProfit Textil – malá textilní dílna v Praze. Potisk triček, výroba našívek a úpravy sak na míru, od jednoho kusu po malé série.";
 
 /** Telefon ve formátu pro odkaz tel: */
 export const phoneHref = `tel:${phone.replace(/\s+/g, "")}`;

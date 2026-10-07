@@ -31,7 +31,7 @@ export function About() {
           <Media
             src={imageSrc(teamImage)}
             file={teamImage}
-            alt="Pětičlenný tým WebTextil v dílně u tiskařského stolu"
+            alt="Pětičlenný tým TopProfit Textil v dílně u tiskařského stolu"
             available={imageExists(teamImage)}
             sizes="(min-width: 1024px) 50vw, 100vw"
           />
