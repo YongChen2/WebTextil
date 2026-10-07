@@ -5,6 +5,7 @@ import { Gallery } from "@/components/Gallery";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Process } from "@/components/Process";
+import { Reviews } from "@/components/Reviews";
 import { Services } from "@/components/Services";
 import { address, brand, description, email, ico, name, phone, siteUrl } from "@/config/site";
 
@@ -41,6 +42,7 @@ export default function Home() {
         <Hero />
         <Services />
         <Gallery />
+        <Reviews />
         <Process />
         <About />
         <Contact />

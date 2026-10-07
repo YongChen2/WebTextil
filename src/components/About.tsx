@@ -1,18 +1,21 @@
 import { imageExists, imageSrc } from "@/lib/images";
 import { Media } from "./Media";
+import { Reveal } from "./Reveal";
 
 const teamImage = "o-nas.webp";
 
 export function About() {
   return (
-    <section id="o-nas" aria-labelledby="o-nas-title" className="bg-paper py-24 md:py-40">
+    <section id="o-nas" aria-labelledby="o-nas-title" className="bg-paper py-20 md:py-32">
       <div className="container-x grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
         <div>
-          <p className="eyebrow">O nás</p>
-          <h2 id="o-nas-title" className="section-title mt-6">
-            Pět lidí, jedna dílna.
-          </h2>
-          <div className="mt-10 max-w-xl space-y-6 text-lg leading-relaxed text-ink/70">
+          <Reveal>
+            <p className="eyebrow">O nás</p>
+            <h2 id="o-nas-title" className="section-title mt-6">
+              Pět lidí, jedna dílna.
+            </h2>
+          </Reveal>
+          <Reveal delay={0.15} className="mt-10 max-w-xl space-y-6 text-lg leading-relaxed text-ink/70">
             <p>
               Jsme malá pražská textilní dílna. Potiskujeme trička, vyrábíme našívky a upravujeme
               saka – pro firmy, školy, kapely, spolky i jednotlivce.
@@ -25,7 +28,7 @@ export function About() {
               Nejsme velkovýroba. Máme čas na detail, poradíme s materiálem a řekneme na rovinu,
               co půjde a co ne.
             </p>
-          </div>
+          </Reveal>
         </div>
         <div className="relative aspect-[4/5] w-full overflow-hidden">
           <Media

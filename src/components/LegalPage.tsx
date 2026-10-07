@@ -7,7 +7,7 @@ export function LegalPage({ title, children }: { title: string; children: ReactN
     <>
       <Header />
       <main className="container-x max-w-3xl py-20 md:py-32">
-        <h1 className="font-serif text-5xl leading-tight tracking-tight md:text-7xl">{title}</h1>
+        <h1 className="font-serif text-5xl leading-tight tracking-[-0.02em] md:text-7xl">{title}</h1>
         <p role="note" className="mt-10 border border-gold bg-sand p-5 text-sm font-medium">
           DOPLNIT PŘED ZVEŘEJNĚNÍM – zkontrolovat právníkem
         </p>

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { categoryLabels, type Category, type GalleryItem } from "@/data/content";
 import { Media } from "./Media";
 
@@ -28,7 +29,7 @@ export function GalleryGrid({ items }: { items: GalleryItemWithImage[] }) {
               type="button"
               aria-pressed={pressed}
               onClick={() => setActive(f.id)}
-              className={`rounded-none border px-5 py-2.5 text-sm transition-colors ${
+              className={`press rounded-none border px-5 py-2.5 text-sm ${
                 pressed
                   ? "border-ink bg-ink text-paper"
                   : "border-ink/20 bg-transparent text-ink hover:border-ink"
@@ -46,24 +47,37 @@ export function GalleryGrid({ items }: { items: GalleryItemWithImage[] }) {
 
       <ul className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 lg:gap-6">
         {visible.map((item) => (
-          <li key={item.image}>
-            <figure>
-              <div className="relative aspect-square overflow-hidden">
-                <Media
-                  src={item.src}
-                  file={item.image}
-                  alt={item.alt}
-                  available={item.available}
-                  sizes="(min-width: 1024px) 33vw, 50vw"
-                />
-              </div>
-              <figcaption className="mt-3 text-xs tracking-[0.15em] text-ink/60 uppercase">
-                {categoryLabels[item.category]}
-              </figcaption>
-            </figure>
-          </li>
+          <GalleryCard key={item.image} item={item} />
         ))}
       </ul>
     </>
+  );
+}
+
+/** Obrázek při scrollu plynule roste z 0.96 na 1 a zvyšuje průhlednost (jen transform + opacity). */
+function GalleryCard({ item }: { item: GalleryItemWithImage }) {
+  const ref = useRef<HTMLLIElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "start 55%"] });
+  const scale = useTransform(scrollYProgress, [0, 1], [0.96, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0.3, 1]);
+
+  return (
+    <li ref={ref}>
+      <figure>
+        {/* Animuje se jen obrázek; popisek zůstává plně čitelný. */}
+        <motion.div data-motion style={{ scale, opacity }} className="relative aspect-square overflow-hidden">
+          <Media
+            src={item.src}
+            file={item.image}
+            alt={item.alt}
+            available={item.available}
+            sizes="(min-width: 1024px) 33vw, 50vw"
+          />
+        </motion.div>
+        <figcaption className="mt-3 text-xs tracking-[0.15em] text-ink/60 uppercase">
+          {categoryLabels[item.category]}
+        </figcaption>
+      </figure>
+    </li>
   );
 }

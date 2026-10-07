@@ -1,0 +1,17 @@
+/**
+ * Recenze klientů. Před spuštěním doplňte skutečné citace (se souhlasem klientů),
+ * nebo nastavte showReviews na false – sekce se pak nevykreslí.
+ */
+export const showReviews = true;
+
+export type Review = {
+  quote: string;
+  name: string;
+  company: string;
+};
+
+export const reviews: Review[] = [
+  { quote: "DOPLNIT skutečnou citaci klienta", name: "DOPLNIT jméno", company: "DOPLNIT firmu" },
+  { quote: "DOPLNIT skutečnou citaci klienta", name: "DOPLNIT jméno", company: "DOPLNIT firmu" },
+  { quote: "DOPLNIT skutečnou citaci klienta", name: "DOPLNIT jméno", company: "DOPLNIT firmu" },
+];

@@ -1,5 +1,10 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { brand } from "@/config/site";
+import { EASE } from "./Reveal";
 
 const nav = [
   { href: "/#sluzby", label: "Služby" },
@@ -9,10 +14,25 @@ const nav = [
 ];
 
 export function Header() {
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+
+  // Při scrollu dolů se navigace schová, při scrollu nahoru se vrátí.
+  useMotionValueEvent(scrollY, "change", (y) => {
+    const prev = scrollY.getPrevious() ?? 0;
+    setHidden(y > prev && y > 120);
+  });
+
   return (
-    <header className="border-b border-ink/10 bg-paper">
+    <motion.header
+      data-motion
+      className="sticky top-0 z-40 border-b border-ink/10 bg-paper/75 backdrop-blur-md"
+      animate={{ y: hidden ? "-100%" : "0%" }}
+      transition={{ duration: 0.4, ease: EASE }}
+      onFocusCapture={() => setHidden(false)}
+    >
       <div className="container-x flex h-16 items-center justify-between md:h-20">
-        <Link href="/" className="font-serif text-xl tracking-tight md:text-2xl">
+        <Link href="/" className="font-serif text-xl tracking-[-0.02em] md:text-2xl">
           {brand}
         </Link>
         <nav aria-label="Hlavní navigace" className="flex items-center gap-8 text-sm">
@@ -30,6 +50,6 @@ export function Header() {
           </Link>
         </nav>
       </div>
-    </header>
+    </motion.header>
   );
 }

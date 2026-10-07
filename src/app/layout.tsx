@@ -57,6 +57,11 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="cs" className={`${inter.variable} ${playfair.variable}`}>
+      <head>
+        <noscript>
+          <style>{"[data-motion]{opacity:1!important;transform:none!important}"}</style>
+        </noscript>
+      </head>
       <body className="min-h-screen">{children}</body>
     </html>
   );

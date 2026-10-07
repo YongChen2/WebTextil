@@ -7,7 +7,8 @@ import { Media } from "./Media";
 
 export type ServiceWithImage = Service & { src: string; available: boolean };
 
-const FADE = 0.1;
+// Šířka přechodu (podíl scrollu) – širší okno = plynulejší crossfade bez tvrdého přepnutí.
+const FADE = 0.15;
 
 /**
  * Vstupní/výstupní rozsah pro i-tý obrázek. Hranice mezi službami leží
@@ -97,7 +98,7 @@ export function ServicesScrolly({ services }: { services: ServiceWithImage[] }) 
               <span aria-hidden className="mt-4 block h-px w-12 bg-gold" />
               <h3
                 id={`sluzba-${service.id}-title`}
-                className="mt-6 font-serif text-4xl leading-tight tracking-tight md:text-6xl"
+                className="mt-6 font-serif text-4xl leading-tight tracking-[-0.02em] md:text-6xl"
               >
                 {service.title}
               </h3>
