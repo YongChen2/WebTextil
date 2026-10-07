@@ -1,6 +1,7 @@
 /**
  * Fotky v obrazových kolonkách webu – jediné místo, kde se mění.
  * `file` je název souboru v /public/images/, `null` = zástupná šedá plocha.
+ * Když soubor v /public/images/ chybí, zobrazí se také zástupná plocha.
  *
  * Příklad:
  *   "sluzba-trika": { file: "tricko.jpg", alt: "Černé tričko se sítotiskem" },
@@ -25,13 +26,28 @@ export type SlotImage = { file: string; alt: string } | null;
 
 export const imageSlots: Record<SlotId, SlotImage> = {
   // Služby
-  "sluzba-trika": null,
-  "sluzba-nasivky": null,
-  "sluzba-saka": null,
+  "sluzba-trika": {
+    file: "sluzba-trika.jpg",
+    alt: "Černé bavlněné tričko vedle sítotiskového rámu a stěrky",
+  },
+  "sluzba-nasivky": {
+    file: "sluzba-nasivky.jpg",
+    alt: "Kulatá vyšívaná našívka s geometrickým vzorem ve zlaté a tmavomodré nití",
+  },
+  "sluzba-saka": {
+    file: "sluzba-saka.jpg",
+    alt: "Šedé vlněné sako na ramínku s krejčovským metrem na rukávu",
+  },
 
   // Galerie – kategorie každé kolonky je v src/data/content.ts
-  "galerie-01": null,
-  "galerie-02": null,
+  "galerie-01": {
+    file: "galerie-01.jpg",
+    alt: "Složená bílá trička s jednobarevným abstraktním potiskem",
+  },
+  "galerie-02": {
+    file: "galerie-02.jpg",
+    alt: "Devět kulatých vyšívaných našívek s geometrickými motivy",
+  },
   "galerie-03": null,
   "galerie-04": null,
   "galerie-05": null,
