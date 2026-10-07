@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WebTextil
 
-## Getting Started
+One-page web textilní dílny WebTextil (potisk triček, našívky, úpravy sak).
+Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 · framer-motion · Zod.
 
-First, run the development server:
+## Vývoj
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # produkční build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Kde co upravit
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Kontakty a firemní údaje:** `src/config/site.ts` (telefon, e-mail, IČO, adresa)
+- **Texty služeb, galerie, postupu:** `src/data/content.ts`
+- **Fotky:** `public/images/` (seznam názvů viz `public/images/README.md`)
+- **Odeslání poptávky e-mailem:** `src/app/api/poptavka/route.ts` (TODO v kódu)
+- **Právní stránky:** `src/app/obchodni-podminky`, `src/app/ochrana-osobnich-udaju`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Proměnné prostředí
 
-## Learn More
+| Název | Popis |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Veřejná adresa webu, např. `https://www.webtextil.cz` |
 
-To learn more about Next.js, take a look at the following resources:
+## Nasazení
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Vercel: importovat repozitář, framework se detekuje automaticky (Next.js),
+nastavit `NEXT_PUBLIC_SITE_URL` a nasadit.

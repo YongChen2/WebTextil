@@ -1,26 +1,62 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-ink: #111111;
+  --color-paper: #ffffff;
+  --color-sand: #f5f3f0;
+  --color-gold: #b8976a;
+  --color-placeholder: #e5e2dd;
+
+  --font-serif: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-6 md:px-10;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-none bg-ink px-8 py-4 text-sm font-medium tracking-wide text-paper transition-colors duration-200 hover:bg-[#333333] disabled:cursor-not-allowed disabled:bg-[#555555];
+  }
+
+  /* Text odkazu zůstává tmavý kvůli kontrastu, zlatá je akcent podtržení. */
+  .link {
+    @apply text-ink underline decoration-gold decoration-1 underline-offset-4 transition-colors hover:text-gold;
+  }
+
+  .eyebrow {
+    @apply text-xs font-medium tracking-[0.2em] text-ink/60 uppercase;
+  }
+
+  .section-title {
+    @apply font-serif text-5xl leading-[1.05] tracking-tight md:text-7xl lg:text-8xl;
+  }
 }
