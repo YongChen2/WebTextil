@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/LegalPage";
-import { address, email, ico, name } from "@/config/site";
+import { address, contactPendingText, email, hasEmail, ico, name } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Obchodní podmínky",
@@ -29,7 +29,13 @@ export default function ObchodniPodminky() {
       <p>[Zástupný text – lhůty, postup, zboží vyrobené na zakázku.]</p>
       <h2>7. Závěrečná ustanovení</h2>
       <p>
-        [Zástupný text.] Kontakt pro dotazy: <a href={`mailto:${email}`} className="link">{email}</a>.
+        [Zástupný text.] Kontakt pro dotazy:{" "}
+        {hasEmail ? (
+          <a href={`mailto:${email}`} className="link">{email}</a>
+        ) : (
+          contactPendingText
+        )}
+        .
       </p>
     </LegalPage>
   );

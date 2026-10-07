@@ -1,4 +1,14 @@
-import { address, email, name, phone, phoneHref } from "@/config/site";
+import {
+  address,
+  contactPendingText,
+  email,
+  hasEmail,
+  hasPhone,
+  inquiryFormEnabled,
+  name,
+  phone,
+  phoneHref,
+} from "@/config/site";
 import { ContactForm } from "./ContactForm";
 import { Reveal } from "./Reveal";
 
@@ -20,17 +30,21 @@ export function Contact() {
             </p>
           </Reveal>
           <address className="mt-12 space-y-2 not-italic">
-            <p>
-              <a href={phoneHref} className="link text-lg">
-                {phone}
-              </a>
-            </p>
-            <p>
-              <a href={`mailto:${email}`} className="link text-lg">
-                {email}
-              </a>
-            </p>
-            <p className="pt-4 text-ink/70">
+            {hasPhone && (
+              <p>
+                <a href={phoneHref} className="link text-lg">
+                  {phone}
+                </a>
+              </p>
+            )}
+            {hasEmail && (
+              <p>
+                <a href={`mailto:${email}`} className="link text-lg">
+                  {email}
+                </a>
+              </p>
+            )}
+            <p className={hasPhone || hasEmail ? "pt-4 text-ink/70" : "text-ink/70"}>
               {name}
               <br />
               {address.street}
@@ -39,8 +53,23 @@ export function Contact() {
             </p>
           </address>
         </div>
-        <ContactForm />
+        {inquiryFormEnabled ? <ContactForm /> : <ContactFallback />}
       </div>
     </section>
+  );
+}
+
+/** Náhrada formuláře, dokud není napojený na odesílání e-mailů. */
+function ContactFallback() {
+  return (
+    <div className="border-t border-ink pt-8">
+      {hasEmail ? (
+        <a href={`mailto:${email}?subject=${encodeURIComponent("Poptávka")}`} className="btn">
+          Napište nám na e-mail
+        </a>
+      ) : (
+        <p className="font-serif text-3xl leading-snug tracking-[-0.02em]">{contactPendingText}</p>
+      )}
+    </div>
   );
 }

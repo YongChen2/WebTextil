@@ -26,8 +26,8 @@ export const registry =
   "Zapsáno v OR u Městského soudu v Praze, oddíl C, vložka 380929";
 
 // TODO: doplnit skutečné kontakty
-export const phone = "+420 000 000 000";
-export const email = "info@example.cz";
+export const phone: string = "+420 000 000 000";
+export const email: string = "info@example.cz";
 
 export const tagline = "Potisk, našívky a úpravy oděvů na míru";
 
@@ -36,3 +36,19 @@ export const description =
 
 /** Telefon ve formátu pro odkaz tel: */
 export const phoneHref = `tel:${phone.replace(/\s+/g, "")}`;
+
+// Zástupné hodnoty – dokud jsou nastavené, kontakt se na webu nezobrazuje.
+const PLACEHOLDER_PHONE = "+420 000 000 000";
+const PLACEHOLDER_EMAIL = "info@example.cz";
+
+export const hasPhone = phone.trim() !== "" && phone !== PLACEHOLDER_PHONE;
+export const hasEmail = email.trim() !== "" && email !== PLACEHOLDER_EMAIL;
+
+/** Text zobrazený místo kontaktů, dokud nejsou doplněné. */
+export const contactPendingText = "Kontakt bude doplněn";
+
+/**
+ * Formulář poptávky. Zapněte (true) až po napojení /api/poptavka na odesílání
+ * e-mailů – do té doby by poptávky nikam nedorazily.
+ */
+export const inquiryFormEnabled = false;

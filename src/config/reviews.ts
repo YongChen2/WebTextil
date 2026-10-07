@@ -2,7 +2,7 @@
  * Recenze klientů. Před spuštěním doplňte skutečné citace (se souhlasem klientů),
  * nebo nastavte showReviews na false – sekce se pak nevykreslí.
  */
-export const showReviews = true;
+export const showReviews = false;
 
 export type Review = {
   quote: string;

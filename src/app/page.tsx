@@ -7,7 +7,7 @@ import { Hero } from "@/components/Hero";
 import { Process } from "@/components/Process";
 import { Reviews } from "@/components/Reviews";
 import { Services } from "@/components/Services";
-import { address, brand, description, email, ico, name, phone, siteUrl } from "@/config/site";
+import { address, brand, description, email, hasEmail, hasPhone, ico, name, phone, siteUrl } from "@/config/site";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -16,8 +16,9 @@ const jsonLd = {
   legalName: name,
   description,
   url: siteUrl,
-  telephone: phone,
-  email,
+  // Zástupné kontakty do strukturovaných dat nedáváme.
+  ...(hasPhone && { telephone: phone }),
+  ...(hasEmail && { email }),
   taxID: ico.replace(/\s/g, ""),
   address: {
     "@type": "PostalAddress",

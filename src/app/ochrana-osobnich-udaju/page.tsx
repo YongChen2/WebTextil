@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/LegalPage";
-import { address, email, ico, name } from "@/config/site";
+import { address, contactPendingText, email, hasEmail, ico, name } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Ochrana osobních údajů",
@@ -15,7 +15,12 @@ export default function OchranaOsobnichUdaju() {
       <p>
         Správcem osobních údajů je společnost {name}, se sídlem {address.street},{" "}
         {address.postalCode} {address.city}, IČO: {ico}. Kontakt:{" "}
-        <a href={`mailto:${email}`} className="link">{email}</a>.
+        {hasEmail ? (
+          <a href={`mailto:${email}`} className="link">{email}</a>
+        ) : (
+          contactPendingText
+        )}
+        .
       </p>
       <h2>2. Jaké údaje zpracováváme</h2>
       <p>

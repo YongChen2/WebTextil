@@ -1,5 +1,17 @@
 import Link from "next/link";
-import { address, brand, email, ico, name, phone, phoneHref, registry } from "@/config/site";
+import {
+  address,
+  brand,
+  contactPendingText,
+  email,
+  hasEmail,
+  hasPhone,
+  ico,
+  name,
+  phone,
+  phoneHref,
+  registry,
+} from "@/config/site";
 
 export function Footer() {
   return (
@@ -16,16 +28,21 @@ export function Footer() {
 
         <div className="space-y-1">
           <p className="eyebrow mb-3">Kontakt</p>
-          <p>
-            <a href={phoneHref} className="link">
-              {phone}
-            </a>
-          </p>
-          <p>
-            <a href={`mailto:${email}`} className="link">
-              {email}
-            </a>
-          </p>
+          {hasPhone && (
+            <p>
+              <a href={phoneHref} className="link">
+                {phone}
+              </a>
+            </p>
+          )}
+          {hasEmail && (
+            <p>
+              <a href={`mailto:${email}`} className="link">
+                {email}
+              </a>
+            </p>
+          )}
+          {!hasPhone && !hasEmail && <p>{contactPendingText}</p>}
         </div>
 
         <div className="space-y-1">
