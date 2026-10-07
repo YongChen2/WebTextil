@@ -1,3 +1,5 @@
+import type { SlotId } from "@/config/images";
+
 export type Category = "tricka" | "nasivky" | "saka";
 
 export const categoryLabels: Record<Category, string> = {
@@ -11,7 +13,9 @@ export type Service = {
   title: string;
   lead: string;
   params: string[];
-  image: string;
+  /** Obrazová kolonka – fotka se nastavuje v src/config/images.ts. */
+  slot: SlotId;
+  /** Popis zástupné plochy, dokud v kolonce není fotka. */
   alt: string;
 };
 
@@ -26,7 +30,7 @@ export const services: Service[] = [
       "Bavlna, směsi i funkční materiály",
       "Dodání obvykle do 7–10 pracovních dní",
     ],
-    image: "sluzba-trika.webp",
+    slot: "sluzba-trika",
     alt: "Ruka přejíždí stěrkou přes sítotiskový rám na černém tričku",
   },
   {
@@ -39,7 +43,7 @@ export const services: Service[] = [
       "Zažehlovací, našívací nebo se suchým zipem",
       "Vzorek do 5 pracovních dní",
     ],
-    image: "sluzba-nasivky.webp",
+    slot: "sluzba-nasivky",
     alt: "Detail vyšívané našívky s logem na tmavé látce",
   },
   {
@@ -52,27 +56,27 @@ export const services: Service[] = [
       "Výměna podšívky a knoflíků",
       "Firemní a školní uniformy v sériích",
     ],
-    image: "sluzba-saka.webp",
+    slot: "sluzba-saka",
     alt: "Krejčí připevňuje špendlíky na rukáv tmavého saka",
   },
 ];
 
 export type GalleryItem = {
-  image: string;
+  slot: SlotId;
   category: Category;
   alt: string;
 };
 
 export const gallery: GalleryItem[] = [
-  { image: "galerie-01.webp", category: "tricka", alt: "Bílá trička s jednobarevným sítotiskem složená na stole" },
-  { image: "galerie-02.webp", category: "nasivky", alt: "Sada kulatých vyšívaných našívek pro sportovní klub" },
-  { image: "galerie-03.webp", category: "saka", alt: "Tmavomodré sako s našitým emblémem na náprsní kapse" },
-  { image: "galerie-04.webp", category: "tricka", alt: "Černé tričko s barevným DTF potiskem na zádech" },
-  { image: "galerie-05.webp", category: "nasivky", alt: "Tkaná našívka s názvem firmy na pracovní bundě" },
-  { image: "galerie-06.webp", category: "saka", alt: "Detail zkráceného rukávu saka s ručně přišitými knoflíky" },
-  { image: "galerie-07.webp", category: "tricka", alt: "Série triček v různých velikostech pro firemní akci" },
-  { image: "galerie-08.webp", category: "nasivky", alt: "Našívky se suchým zipem připravené k expedici" },
-  { image: "galerie-09.webp", category: "saka", alt: "Školní sako s vyšitým monogramem na klopě" },
+  { slot: "galerie-01", category: "tricka", alt: "Bílá trička s jednobarevným sítotiskem složená na stole" },
+  { slot: "galerie-02", category: "nasivky", alt: "Sada kulatých vyšívaných našívek pro sportovní klub" },
+  { slot: "galerie-03", category: "saka", alt: "Tmavomodré sako s našitým emblémem na náprsní kapse" },
+  { slot: "galerie-04", category: "tricka", alt: "Černé tričko s barevným DTF potiskem na zádech" },
+  { slot: "galerie-05", category: "nasivky", alt: "Tkaná našívka s názvem firmy na pracovní bundě" },
+  { slot: "galerie-06", category: "saka", alt: "Detail zkráceného rukávu saka s ručně přišitými knoflíky" },
+  { slot: "galerie-07", category: "tricka", alt: "Série triček v různých velikostech pro firemní akci" },
+  { slot: "galerie-08", category: "nasivky", alt: "Našívky se suchým zipem připravené k expedici" },
+  { slot: "galerie-09", category: "saka", alt: "Školní sako s vyšitým monogramem na klopě" },
 ];
 
 export const steps = [

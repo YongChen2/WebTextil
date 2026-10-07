@@ -1,14 +1,10 @@
 import { services } from "@/data/content";
-import { imageExists, imageSrc } from "@/lib/images";
+import { resolveSlot } from "@/lib/images";
 import { ServicesScrolly } from "./ServicesScrolly";
 import { Reveal } from "./Reveal";
 
 export function Services() {
-  const items = services.map((s) => ({
-    ...s,
-    src: imageSrc(s.image),
-    available: imageExists(s.image),
-  }));
+  const items = services.map((s) => ({ ...s, ...resolveSlot(s.slot, s.alt) }));
 
   return (
     <section id="sluzby" aria-labelledby="sluzby-title" className="bg-sand pt-20 md:pt-32">

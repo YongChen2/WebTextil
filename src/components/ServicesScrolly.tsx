@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform, type MotionValue } from "framer-motion
 import type { Service } from "@/data/content";
 import { Media } from "./Media";
 
-export type ServiceWithImage = Service & { src: string; available: boolean };
+export type ServiceWithImage = Service & { src: string; available: boolean; label: string };
 
 // Šířka přechodu (podíl scrollu) – širší okno = plynulejší crossfade bez tvrdého přepnutí.
 const FADE = 0.15;
@@ -56,7 +56,7 @@ function StickyImage({
     >
       <Media
         src={service.src}
-        file={service.image}
+        file={service.label}
         alt={service.alt}
         available={service.available}
         sizes="50vw"
@@ -87,7 +87,7 @@ export function ServicesScrolly({ services }: { services: ServiceWithImage[] }) 
             <div className="relative mb-10 aspect-[4/5] w-full overflow-hidden lg:hidden lg:motion-reduce:order-2 lg:motion-reduce:mb-0 lg:motion-reduce:block">
               <Media
                 src={service.src}
-                file={service.image}
+                file={service.label}
                 alt={service.alt}
                 available={service.available}
                 sizes="(min-width: 1024px) 50vw, 100vw"

@@ -1,8 +1,8 @@
-import { imageExists, imageSrc } from "@/lib/images";
+import { resolveSlot } from "@/lib/images";
 import { Media } from "./Media";
 import { Reveal } from "./Reveal";
 
-const teamImage = "o-nas.webp";
+const teamImage = resolveSlot("o-nas", "Pětičlenný tým TopProfit Textil v dílně u tiskařského stolu");
 
 export function About() {
   return (
@@ -32,10 +32,10 @@ export function About() {
         </div>
         <div className="relative aspect-[4/5] w-full overflow-hidden">
           <Media
-            src={imageSrc(teamImage)}
-            file={teamImage}
-            alt="Pětičlenný tým TopProfit Textil v dílně u tiskařského stolu"
-            available={imageExists(teamImage)}
+            src={teamImage.src}
+            file={teamImage.label}
+            alt={teamImage.alt}
+            available={teamImage.available}
             sizes="(min-width: 1024px) 50vw, 100vw"
           />
         </div>

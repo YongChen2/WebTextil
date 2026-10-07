@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { categoryLabels, type Category, type GalleryItem } from "@/data/content";
 import { Media } from "./Media";
 
-export type GalleryItemWithImage = GalleryItem & { src: string; available: boolean };
+export type GalleryItemWithImage = GalleryItem & { src: string; available: boolean; label: string };
 
 type Filter = "vse" | Category;
 
@@ -47,7 +47,7 @@ export function GalleryGrid({ items }: { items: GalleryItemWithImage[] }) {
 
       <ul className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 lg:gap-6">
         {visible.map((item) => (
-          <GalleryCard key={item.image} item={item} />
+          <GalleryCard key={item.slot} item={item} />
         ))}
       </ul>
     </>
@@ -68,7 +68,7 @@ function GalleryCard({ item }: { item: GalleryItemWithImage }) {
         <motion.div data-motion style={{ scale, opacity }} className="relative aspect-square overflow-hidden">
           <Media
             src={item.src}
-            file={item.image}
+            file={item.label}
             alt={item.alt}
             available={item.available}
             sizes="(min-width: 1024px) 33vw, 50vw"
