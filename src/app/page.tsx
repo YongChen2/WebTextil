@@ -1,13 +1,28 @@
 import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
+import { Faq } from "@/components/Faq";
 import { Footer } from "@/components/Footer";
 import { Gallery } from "@/components/Gallery";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
+import { Prices } from "@/components/Prices";
 import { Process } from "@/components/Process";
 import { Reviews } from "@/components/Reviews";
 import { Services } from "@/components/Services";
-import { address, brand, description, email, hasEmail, hasPhone, ico, name, phone, siteUrl } from "@/config/site";
+import {
+  address,
+  brand,
+  description,
+  email,
+  faq,
+  hasEmail,
+  hasPhone,
+  ico,
+  name,
+  phone,
+  showroom,
+  siteUrl,
+} from "@/config/site";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -27,7 +42,30 @@ const jsonLd = {
     addressLocality: address.city,
     addressCountry: address.country,
   },
+  areaServed: [
+    { "@type": "City", name: "Praha" },
+    { "@type": "Country", name: "Česká republika" },
+  ],
+  // Otevírací dobu uvádíme jen u otevřeného showroomu – sídlo není provozovna.
+  ...(showroom.enabled && {
+    openingHoursSpecification: showroom.openingHours.map((h) => ({
+      "@type": "OpeningHoursSpecification",
+      ...h,
+    })),
+  }),
 };
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
+
+const toJson = (data: object) => JSON.stringify(data).replace(/</g, "\\u003c");
 
 export default function Home() {
   return (
@@ -42,16 +80,22 @@ export default function Home() {
       <main id="obsah">
         <Hero />
         <Services />
+        <Prices />
         <Gallery />
         <Reviews />
         <Process />
         <About />
+        <Faq />
         <Contact />
       </main>
       <Footer />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+        dangerouslySetInnerHTML={{ __html: toJson(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: toJson(faqJsonLd) }}
       />
     </>
   );

@@ -1,8 +1,9 @@
+import { claims } from "@/config/site";
 import { resolveSlot } from "@/lib/images";
 import { Media } from "./Media";
 import { Reveal } from "./Reveal";
 
-const teamImage = resolveSlot("o-nas", "Pětičlenný tým TopProfit Textil v dílně u tiskařského stolu");
+const teamImage = resolveSlot("o-nas", "Tým TopProfit Textil u tiskařského stolu");
 
 export function About() {
   return (
@@ -12,16 +13,16 @@ export function About() {
           <Reveal>
             <p className="eyebrow">O nás</p>
             <h2 id="o-nas-title" className="section-title mt-6">
-              Pět lidí, jedna dílna.
+              {claims.aboutTitle}
             </h2>
           </Reveal>
           <Reveal delay={0.15} className="mt-10 max-w-xl space-y-6 text-lg leading-relaxed text-ink/70">
             <p>
-              Jsme malá pražská textilní dílna. Potiskujeme trička, vyrábíme našívky a upravujeme
+              Jsme malá textilní dílna. Potiskujeme trička, vyrábíme našívky a upravujeme
               saka – pro firmy, školy, kapely, spolky i jednotlivce.
             </p>
             <p>
-              Tým tvoří pět lidí: tiskaři, krejčová, grafik a člověk, který drží zakázky pohromadě.
+              V týmu jsou tiskaři, krejčová, grafik a člověk, který drží zakázky pohromadě.
               Každou zakázku vidí od začátku do konce stejní lidé, takže víte, s kým mluvíte.
             </p>
             <p>

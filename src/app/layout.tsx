@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { brand, description, siteUrl, tagline } from "@/config/site";
 import "./globals.css";
 
@@ -62,7 +63,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <style>{"[data-motion]{opacity:1!important;transform:none!important}"}</style>
         </noscript>
       </head>
-      <body className="min-h-screen">{children}</body>
+      <body className="min-h-screen">
+        {children}
+        {/* Vercel Analytics měří anonymně a bez cookies – cookie lišta není potřeba. */}
+        <Analytics />
+      </body>
     </html>
   );
 }

@@ -3,11 +3,13 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
-import { brand } from "@/config/site";
+import { brand, showPrices } from "@/config/site";
 import { EASE } from "./Reveal";
 
 const nav = [
   { href: "/#sluzby", label: "Služby" },
+  // Odkaz na ceny jen tehdy, když je sekce #ceny viditelná.
+  ...(showPrices ? [{ href: "/#ceny", label: "Ceny" }] : []),
   { href: "/#galerie", label: "Galerie" },
   { href: "/#postup", label: "Jak pracujeme" },
   { href: "/#o-nas", label: "O nás" },

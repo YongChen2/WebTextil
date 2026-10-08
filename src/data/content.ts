@@ -1,4 +1,5 @@
 import type { SlotId } from "@/config/images";
+import { claims } from "@/config/site";
 
 export type Category = "tricka" | "nasivky" | "saka";
 
@@ -26,9 +27,9 @@ export const services: Service[] = [
     lead: "Sítotisk, DTF i digitální potisk na trička, mikiny a tašky. Od jednoho kusu pro radost po série pro firmy, kapely a akce.",
     params: [
       "Minimální odběr od 1 ks",
-      "Sítotisk až 6 barev, DTF v plné barevnosti",
+      `Sítotisk až ${claims.screenPrintColors} barev, DTF v plné barevnosti`,
       "Bavlna, směsi i funkční materiály",
-      "Dodání obvykle do 7–10 pracovních dní",
+      `Dodání obvykle do ${claims.deliveryTime}`,
     ],
     slot: "sluzba-trika",
     alt: "Ruka přejíždí stěrkou přes sítotiskový rám na černém tričku",
@@ -41,7 +42,7 @@ export const services: Service[] = [
       "Vyšívané, tkané i potištěné",
       "Velikost od 3 do 25 cm",
       "Zažehlovací, našívací nebo se suchým zipem",
-      "Vzorek do 5 pracovních dní",
+      `Vzorek ${claims.sampleTime}`,
     ],
     slot: "sluzba-nasivky",
     alt: "Detail vyšívané našívky s logem na tmavé látce",
@@ -82,7 +83,7 @@ export const gallery: GalleryItem[] = [
 export const steps = [
   {
     title: "Poptávka",
-    text: "Napište nám, co potřebujete – počet kusů, materiál, termín. Pošlete logo nebo náčrt. Ozveme se do jednoho pracovního dne.",
+    text: `Napište nám, co potřebujete – počet kusů, materiál, termín. Pošlete logo nebo náčrt. Ozveme se ${claims.responseTime}.`,
   },
   {
     title: "Návrh",
@@ -94,6 +95,6 @@ export const steps = [
   },
   {
     title: "Výroba a dodání",
-    text: "Zakázku vyrobíme v naší pražské dílně, zkontrolujeme každý kus a předáme osobně nebo odešleme přepravcem.",
+    text: "Zakázku vyrobíme, zkontrolujeme každý kus a předáme osobně nebo odešleme přepravcem.",
   },
 ];

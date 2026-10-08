@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import Link from "next/link";
 import { ALLOWED_FILE_TYPES, MAX_FILE_SIZE, type InquiryResponse } from "@/lib/inquiry-shared";
+import { claims } from "@/config/site";
 
 type Status =
   | { state: "idle" }
@@ -66,7 +67,7 @@ export function ContactForm() {
     return (
       <div role="status" className="border border-ink p-8 md:p-10">
         <p className="font-serif text-3xl">Děkujeme, poptávka je odeslaná.</p>
-        <p className="mt-4 text-ink/70">Ozveme se vám obvykle do jednoho pracovního dne.</p>
+        <p className="mt-4 text-ink/70">Ozveme se vám obvykle {claims.responseTime}.</p>
         <button type="button" className="link mt-8 text-sm" onClick={() => setStatus({ state: "idle" })}>
           Odeslat další poptávku
         </button>

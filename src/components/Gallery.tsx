@@ -1,3 +1,4 @@
+import { galleryNote } from "@/config/site";
 import { gallery } from "@/data/content";
 import { resolveSlot } from "@/lib/images";
 import { GalleryGrid } from "./GalleryGrid";
@@ -14,6 +15,7 @@ export function Gallery() {
           <h2 id="galerie-title" className="section-title mt-6">
             Inspirace
           </h2>
+          {galleryNote && <p className="mt-6 text-sm text-ink/60">{galleryNote}</p>}
         </Reveal>
         <GalleryGrid items={items} />
       </div>

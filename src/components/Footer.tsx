@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {
   address,
+  addressLabel,
   brand,
   contactPendingText,
   email,
@@ -21,7 +22,8 @@ export function Footer() {
           <p className="mb-3 font-serif text-2xl text-ink">{brand}</p>
           <p>{name}</p>
           <p>
-            {address.street}, {address.postalCode} {address.city}
+            <span className="text-ink/60">{addressLabel}:</span> {address.street}, {address.postalCode}{" "}
+            {address.city}
           </p>
           <p>IČO: {ico}</p>
         </div>
@@ -55,6 +57,11 @@ export function Footer() {
           <p>
             <Link href="/ochrana-osobnich-udaju" className="link">
               Ochrana osobních údajů (GDPR)
+            </Link>
+          </p>
+          <p>
+            <Link href="/cookies" className="link">
+              Cookies
             </Link>
           </p>
         </div>

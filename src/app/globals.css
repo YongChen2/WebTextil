@@ -77,6 +77,10 @@ body {
     @apply press inline-flex items-center justify-center rounded-none bg-ink px-8 py-4 text-sm font-medium tracking-wide text-paper hover:bg-[#333333] disabled:cursor-not-allowed disabled:bg-[#555555];
   }
 
+  .btn-outline {
+    @apply press inline-flex items-center justify-center rounded-none border border-ink bg-transparent px-8 py-[15px] text-sm font-medium tracking-wide text-ink hover:bg-ink hover:text-paper;
+  }
+
   /* Text odkazu zůstává tmavý kvůli kontrastu, zlatá je akcent podtržení. */
   .link {
     @apply text-ink underline decoration-gold decoration-1 underline-offset-4 transition-colors hover:text-gold;

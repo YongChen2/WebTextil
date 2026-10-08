@@ -1,5 +1,7 @@
 import {
   address,
+  addressLabel,
+  claims,
   contactPendingText,
   email,
   hasEmail,
@@ -8,6 +10,7 @@ import {
   name,
   phone,
   phoneHref,
+  showroom,
 } from "@/config/site";
 import { ContactForm } from "./ContactForm";
 import { Reveal } from "./Reveal";
@@ -25,8 +28,8 @@ export function Contact() {
           </Reveal>
           <Reveal delay={0.15}>
             <p className="mt-8 max-w-md text-lg leading-relaxed text-ink/70">
-              Popište, co potřebujete, a přiložte logo nebo náčrt. Nabídku pošleme obvykle do
-              jednoho pracovního dne.
+              Popište, co potřebujete, a přiložte logo nebo náčrt. Nabídku pošleme obvykle{" "}
+              {claims.responseTime}.
             </p>
           </Reveal>
           <address className="mt-12 space-y-2 not-italic">
@@ -45,6 +48,7 @@ export function Contact() {
               </p>
             )}
             <p className={hasPhone || hasEmail ? "pt-4 text-ink/70" : "text-ink/70"}>
+              <span className="eyebrow block pb-2">{addressLabel}</span>
               {name}
               <br />
               {address.street}
@@ -52,6 +56,14 @@ export function Contact() {
               {address.postalCode} {address.city}
             </p>
           </address>
+          {showroom.enabled && showroom.mapEmbedUrl && (
+            <iframe
+              src={showroom.mapEmbedUrl}
+              title="Mapa"
+              loading="lazy"
+              className="mt-12 aspect-[4/3] w-full border-0"
+            />
+          )}
         </div>
         {inquiryFormEnabled ? <ContactForm /> : <ContactFallback />}
       </div>
