@@ -67,8 +67,17 @@ export const contactPendingText = "Kontakt bude doplněn";
  */
 export const inquiryFormEnabled = true;
 
-/** Adresa, kam formulář posílá. Po aktivaci lze e-mail nahradit aliasem z aktivačního e-mailu FormSubmit. */
-export const inquiryEndpoint = `https://formsubmit.co/ajax/${email}`;
+/**
+ * Alias formuláře z aktivačního e-mailu FormSubmit (náhodný řetězec místo e-mailové adresy v URL).
+ * Dokud je tu zástupná hodnota, formulář posílá na `email`, aby nepřestal fungovat.
+ */
+export const formSubmitId: string = "SEM_VLOŽ_ALIAS"; // DOPLNIT ALIAS z aktivačního e-mailu FormSubmit
+
+const FORMSUBMIT_PLACEHOLDER = "SEM_VLOŽ_ALIAS";
+const hasFormSubmitId = formSubmitId.trim() !== "" && formSubmitId !== FORMSUBMIT_PLACEHOLDER;
+
+/** Adresa, kam formulář posílá. */
+export const inquiryEndpoint = `https://formsubmit.co/ajax/${hasFormSubmitId ? formSubmitId : email}`;
 
 /** Možnosti pole „Služba“ ve formuláři. */
 export const inquiryServices = ["Potisk triček", "Našívky", "Úpravy sak", "Jiné"] as const;

@@ -29,7 +29,8 @@ npm run lint
 ## Poptávkový formulář (FormSubmit)
 
 Formulář používá stejné řešení jako JinLab: prohlížeč posílá data (včetně přílohy
-do 5 MB) přímo na [FormSubmit](https://formsubmit.co) – `https://formsubmit.co/ajax/info@jinsustudio.cz`.
+do 5 MB) přímo na [FormSubmit](https://formsubmit.co) – `https://formsubmit.co/ajax/<formSubmitId>`
+(dokud alias není vyplněný, `https://formsubmit.co/ajax/info@jinsustudio.cz`).
 Nepotřebuje server ani env proměnné. Ochrana proti spamu: skryté pole `_honey`
 a limit jednoho odeslání za minutu (sessionStorage).
 
@@ -43,8 +44,8 @@ Před spuštěním ověřit:
 3. **Odesílatel:** FormSubmit posílá ze své adresy (doména formsubmit.co), odesílatele
    `web@jinsustudio.cz` nastavit nelze. Odpověď jde díky `_replyto` přímo zákazníkovi.
    DNS záznamy (SPF/DKIM) pro jinsustudio.cz kvůli formuláři není potřeba nastavovat.
-4. Volitelně: aktivační e-mail obsahuje náhodný alias – lze ho dát do `inquiryEndpoint`
-   v `src/config/site.ts` místo e-mailové adresy.
+4. **Alias:** aktivační e-mail obsahuje náhodný alias – vložte ho do `formSubmitId`
+   v `src/config/site.ts` místo `SEM_VLOŽ_ALIAS`. E-mailová adresa pak nebude vidět v kódu webu.
 
 ## Nasazení
 
