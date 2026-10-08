@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalPage } from "@/components/LegalPage";
-import { address, brand, ico, operator } from "@/config/site";
+import { address, brand, ico, name } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Cookies",
-  description: `Informace o používání cookies na webu ${operator}`,
+  description: `Informace o používání cookies na webu ${brand}.`,
   alternates: { canonical: "/cookies" },
 };
 
@@ -24,8 +24,8 @@ export default function Cookies() {
       </p>
       <h2>Více informací</h2>
       <p>
-        {operator}, se sídlem {address.street}, {address.postalCode} {address.city}, IČO:{" "}
-        {ico}.{" "}
+        Provozovatelem webu je společnost {name}, se sídlem {address.street},{" "}
+        {address.postalCode} {address.city}, IČO {ico}, provozovatel značky {brand}.{" "}
         Jak zpracováváme osobní údaje, najdete v zásadách{" "}
         <Link href="/ochrana-osobnich-udaju" className="link">
           ochrany osobních údajů

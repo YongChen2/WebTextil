@@ -7,7 +7,7 @@
  * Doménu změňte zde, nebo ji přepište proměnnou NEXT_PUBLIC_SITE_URL ve Vercelu.
  */
 export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.webtextil.cz"
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.jinsustudio.cz"
 ).replace(/\/$/, "");
 
 /** Obchodní značka zobrazovaná na webu. */
@@ -30,9 +30,6 @@ export const address = {
 } as const;
 
 export const addressLabel = "Sídlo společnosti";
-
-/** Označení provozovatele v právních textech. */
-export const operator = `${brand} – provozovatel ${name}`;
 
 export const registry =
   "Zapsáno v OR u Městského soudu v Praze, oddíl C, vložka 380929";

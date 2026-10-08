@@ -24,7 +24,7 @@ npm run lint
 
 | Název | Popis |
 | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Veřejná adresa webu, např. `https://www.webtextil.cz` |
+| `NEXT_PUBLIC_SITE_URL` | Veřejná adresa webu, např. `https://www.jinsustudio.cz` |
 
 ## Nasazení
 
