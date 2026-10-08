@@ -12,7 +12,7 @@ export function Gallery() {
         <Reveal>
           <p className="eyebrow">Galerie</p>
           <h2 id="galerie-title" className="section-title mt-6">
-            Realizace
+            Inspirace
           </h2>
         </Reveal>
         <GalleryGrid items={items} />
