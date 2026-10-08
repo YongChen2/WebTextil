@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalPage } from "@/components/LegalPage";
-import { address, brand, ico, name } from "@/config/site";
+import { address, brand, contactPendingText, email, hasEmail, ico, name } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Cookies",
@@ -25,7 +25,13 @@ export default function Cookies() {
       <h2>Více informací</h2>
       <p>
         Provozovatelem webu je společnost {name}, se sídlem {address.street},{" "}
-        {address.postalCode} {address.city}, IČO {ico}, provozovatel značky {brand}.{" "}
+        {address.postalCode} {address.city}, IČO {ico}, provozovatel značky {brand}. Kontakt:{" "}
+        {hasEmail ? (
+          <a href={`mailto:${email}`} className="link">{email}</a>
+        ) : (
+          contactPendingText
+        )}
+        .{" "}
         Jak zpracováváme osobní údaje, najdete v zásadách{" "}
         <Link href="/ochrana-osobnich-udaju" className="link">
           ochrany osobních údajů

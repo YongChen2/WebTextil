@@ -34,9 +34,10 @@ export const addressLabel = "Sídlo společnosti";
 export const registry =
   "Zapsáno v OR u Městského soudu v Praze, oddíl C, vložka 380929";
 
-// TODO: doplnit skutečné kontakty
-export const phone: string = "+420 000 000 000";
-export const email: string = "info@example.cz";
+/** Telefon – `null` = na webu se nezobrazuje. */
+// Typ přes `as`, aby TypeScript hodnotu null nezúžil a šlo ji později jen přepsat na řetězec.
+export const phone = null as string | null;
+export const email: string = "info@jinsustudio.cz";
 
 /** Hlavní sdělení: H1 v heru, titulek stránky, Open Graph a sdílení. */
 export const tagline = "Potisk triček, našívky a úpravy sak v Praze";
@@ -48,24 +49,29 @@ export const heroSubtitle =
 export const description =
   `${brand} – malá textilní dílna v Praze. Potisk triček, výroba našívek a úpravy sak na míru, od jednoho kusu po malé série.`;
 
+export const hasPhone = !!phone?.trim();
+export const hasEmail = email.trim() !== "";
+
 /** Telefon ve formátu pro odkaz tel: */
-export const phoneHref = `tel:${phone.replace(/\s+/g, "")}`;
+export const phoneHref = `tel:${(phone ?? "").replace(/\s+/g, "")}`;
 
-// Zástupné hodnoty – dokud jsou nastavené, kontakt se na webu nezobrazuje.
-const PLACEHOLDER_PHONE = "+420 000 000 000";
-const PLACEHOLDER_EMAIL = "info@example.cz";
-
-export const hasPhone = phone.trim() !== "" && phone !== PLACEHOLDER_PHONE;
-export const hasEmail = email.trim() !== "" && email !== PLACEHOLDER_EMAIL;
-
-/** Text zobrazený místo kontaktů, dokud nejsou doplněné. */
+/** Text zobrazený místo kontaktů, pokud by e-mail i telefon chyběly. */
 export const contactPendingText = "Kontakt bude doplněn";
 
 /**
- * Formulář poptávky. Zapněte (true) až po napojení /api/poptavka na odesílání
- * e-mailů – do té doby by poptávky nikam nedorazily.
+ * Poptávkový formulář – stejné řešení jako JinLab: prohlížeč posílá data přímo
+ * na FormSubmit (https://formsubmit.co), který je přepošle e-mailem. Bez serveru
+ * a bez env proměnných. Při první poptávce pošle FormSubmit na `email` aktivační
+ * e-mail – dokud se formulář nepotvrdí, poptávky se nedoručují.
+ * `false` = místo formuláře se zobrazí jen odkaz na e-mail.
  */
-export const inquiryFormEnabled = false;
+export const inquiryFormEnabled = true;
+
+/** Adresa, kam formulář posílá. Po aktivaci lze e-mail nahradit aliasem z aktivačního e-mailu FormSubmit. */
+export const inquiryEndpoint = `https://formsubmit.co/ajax/${email}`;
+
+/** Možnosti pole „Služba“ ve formuláři. */
+export const inquiryServices = ["Potisk triček", "Našívky", "Úpravy sak", "Jiné"] as const;
 
 /**
  * Tvrzení o provozu, která je potřeba potvrdit s klientem před spuštěním.

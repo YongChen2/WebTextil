@@ -16,7 +16,13 @@ export default function ObchodniPodminky() {
         Tyto obchodní podmínky upravují vztahy mezi společností {name}, se sídlem{" "}
         {address.street}, {address.postalCode} {address.city}, IČO {ico}, provozovatelem značky{" "}
         {brand} (dále jen „zhotovitel“), a zákazníkem při
-        objednávce potisku textilu, výroby našívek a úprav oděvů.
+        objednávce potisku textilu, výroby našívek a úprav oděvů. Kontakt:{" "}
+        {hasEmail ? (
+          <a href={`mailto:${email}`} className="link">{email}</a>
+        ) : (
+          contactPendingText
+        )}
+        .
       </p>
       <h2>2. Poptávka a uzavření smlouvy</h2>
       <p>[Zástupný text – popis procesu poptávky, cenové nabídky a jejího potvrzení.]</p>

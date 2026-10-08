@@ -24,15 +24,45 @@ export default function OchranaOsobnichUdaju() {
       </p>
       <h2>2. Jaké údaje zpracováváme</h2>
       <p>
-        [Zástupný text.] Prostřednictvím poptávkového formuláře zpracováváme jméno, e-mail,
-        telefon, obsah zprávy a přiložené soubory.
+        Prostřednictvím poptávkového formuláře zpracováváme údaje, které nám sami vyplníte: jméno
+        a příjmení, e-mail, telefon (nepovinný), požadovanou službu, počet kusů, požadovaný termín,
+        text zprávy a přiložený soubor (logo nebo náčrt). Stejné údaje zpracováváme, pokud nám
+        poptávku pošlete přímo e-mailem.
       </p>
       <h2>3. Účel a právní základ zpracování</h2>
-      <p>[Zástupný text – vyřízení poptávky, jednání o smlouvě (čl. 6 odst. 1 písm. b) GDPR).]</p>
+      <p>
+        Údaje používáme výhradně k vyřízení vaší poptávky – k přípravě nabídky, domluvě detailů
+        zakázky a odpovědi na vaše dotazy. Právním základem je jednání o smlouvě na vaši žádost
+        (čl. 6 odst. 1 písm. b) GDPR). Údaje nepoužíváme k marketingu ani je neprodáváme.
+      </p>
       <h2>4. Doba uložení</h2>
-      <p>[Zástupný text.]</p>
+      {/* OVĚŘIT S KLIENTEM: lhůta 12 měsíců pro poptávky bez uzavřené zakázky */}
+      <p>
+        Údaje z poptávky uchováváme po dobu jejího vyřízení, nejdéle 12 měsíců od posledního
+        kontaktu. Pokud na základě poptávky uzavřeme smlouvu, uchováváme údaje po dobu trvání
+        smlouvy a po dobu stanovenou právními předpisy (např. účetní a daňové doklady).
+      </p>
       <h2>5. Příjemci a zpracovatelé</h2>
-      <p>[Zástupný text – hosting (Vercel), poskytovatel e-mailu.]</p>
+      <p>
+        [Zástupný text – hosting (Vercel).] Odeslání formuláře zajišťuje služba FormSubmit
+        (formsubmit.co), která obsah poptávky včetně přílohy přepošle e-mailem na adresu{" "}
+        {hasEmail ? (
+          <a href={`mailto:${email}`} className="link">{email}</a>
+        ) : (
+          contactPendingText
+        )}
+        .
+      </p>
+      <h2>Kontakt na správce</h2>
+      <p>
+        S dotazy ke zpracování osobních údajů nebo k uplatnění svých práv se obracejte na{" "}
+        {hasEmail ? (
+          <a href={`mailto:${email}`} className="link">{email}</a>
+        ) : (
+          contactPendingText
+        )}
+        .
+      </p>
       <h2>6. Vaše práva</h2>
       <p>
         [Zástupný text – právo na přístup, opravu, výmaz, omezení zpracování, přenositelnost,

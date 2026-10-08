@@ -66,13 +66,13 @@ export function Contact({ tone }: { tone: Tone }) {
             />
           )}
         </div>
-        {inquiryFormEnabled ? <ContactForm /> : <ContactFallback />}
+        {inquiryFormEnabled && hasEmail ? <ContactForm /> : <ContactFallback />}
       </div>
     </section>
   );
 }
 
-/** Náhrada formuláře, dokud není napojený na odesílání e-mailů. */
+/** Náhrada formuláře, když je vypnutý (inquiryFormEnabled) nebo chybí e-mail. */
 function ContactFallback() {
   return (
     <div className="border-t border-ink pt-8">
