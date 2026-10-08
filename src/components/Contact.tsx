@@ -14,10 +14,11 @@ import {
 } from "@/config/site";
 import { ContactForm } from "./ContactForm";
 import { Reveal } from "./Reveal";
+import { toneBg, type Tone } from "@/lib/tone";
 
-export function Contact() {
+export function Contact({ tone }: { tone: Tone }) {
   return (
-    <section id="kontakt" aria-labelledby="kontakt-title" className="bg-sand py-20 md:py-32">
+    <section id="kontakt" aria-labelledby="kontakt-title" className={`${toneBg[tone]} py-20 md:py-32`}>
       <div className="container-x grid items-start gap-16 lg:grid-cols-[1fr_1.4fr] lg:gap-24">
         <div>
           <Reveal>

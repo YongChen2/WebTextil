@@ -1,3 +1,4 @@
+import type { ComponentType } from "react";
 import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
 import { Faq } from "@/components/Faq";
@@ -9,6 +10,7 @@ import { Prices } from "@/components/Prices";
 import { Process } from "@/components/Process";
 import { Reviews } from "@/components/Reviews";
 import { Services } from "@/components/Services";
+import { hasReviews } from "@/config/reviews";
 import {
   address,
   brand,
@@ -20,9 +22,11 @@ import {
   ico,
   name,
   phone,
+  showPrices,
   showroom,
   siteUrl,
 } from "@/config/site";
+import type { Tone } from "@/lib/tone";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -65,6 +69,22 @@ const faqJsonLd = {
   })),
 };
 
+/**
+ * Pořadí sekcí. Pozadí se střídá paper/sand podle pořadí viditelných sekcí,
+ * takže skrytá sekce (ceny, recenze) střídání nerozbije.
+ */
+const sections: { key: string; visible: boolean; Section: ComponentType<{ tone: Tone }> }[] = [
+  { key: "hero", visible: true, Section: Hero },
+  { key: "sluzby", visible: true, Section: Services },
+  { key: "ceny", visible: showPrices, Section: Prices },
+  { key: "galerie", visible: true, Section: Gallery },
+  { key: "recenze", visible: hasReviews, Section: Reviews },
+  { key: "postup", visible: true, Section: Process },
+  { key: "o-nas", visible: true, Section: About },
+  { key: "faq", visible: true, Section: Faq },
+  { key: "kontakt", visible: true, Section: Contact },
+];
+
 const toJson = (data: object) => JSON.stringify(data).replace(/</g, "\\u003c");
 
 export default function Home() {
@@ -78,15 +98,11 @@ export default function Home() {
       </a>
       <Header />
       <main id="obsah">
-        <Hero />
-        <Services />
-        <Prices />
-        <Gallery />
-        <Reviews />
-        <Process />
-        <About />
-        <Faq />
-        <Contact />
+        {sections
+          .filter((s) => s.visible)
+          .map(({ key, Section }, i) => (
+            <Section key={key} tone={i % 2 === 0 ? "paper" : "sand"} />
+          ))}
       </main>
       <Footer />
       <script

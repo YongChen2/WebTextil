@@ -1,13 +1,14 @@
 import { priceNote, showPrices, visiblePriceCards } from "@/config/site";
 import { Reveal } from "./Reveal";
+import { toneBg, type Tone } from "@/lib/tone";
 
 const czk = new Intl.NumberFormat("cs-CZ");
 
-export function Prices() {
+export function Prices({ tone }: { tone: Tone }) {
   if (!showPrices) return null;
 
   return (
-    <section id="ceny" aria-labelledby="ceny-title" className="bg-paper py-20 md:py-32">
+    <section id="ceny" aria-labelledby="ceny-title" className={`${toneBg[tone]} py-20 md:py-32`}>
       <div className="container-x">
         <Reveal>
           <p className="eyebrow">Ceny</p>

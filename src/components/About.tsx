@@ -2,12 +2,13 @@ import { claims } from "@/config/site";
 import { resolveSlot } from "@/lib/images";
 import { Media } from "./Media";
 import { Reveal } from "./Reveal";
+import { toneBg, type Tone } from "@/lib/tone";
 
 const teamImage = resolveSlot("o-nas", "Tým TopProfit Textil u tiskařského stolu");
 
-export function About() {
+export function About({ tone }: { tone: Tone }) {
   return (
-    <section id="o-nas" aria-labelledby="o-nas-title" className="bg-paper py-20 md:py-32">
+    <section id="o-nas" aria-labelledby="o-nas-title" className={`${toneBg[tone]} py-20 md:py-32`}>
       <div className="container-x grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
         <div>
           <Reveal>

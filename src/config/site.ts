@@ -35,7 +35,12 @@ export const registry =
 export const phone: string = "+420 000 000 000";
 export const email: string = "info@example.cz";
 
+/** Krátký slogan pro titulek stránky, Open Graph a sdílení. */
 export const tagline = "Potisk, našívky a úpravy oděvů na míru";
+
+/** Podnadpis pod H1 v heru. */
+export const heroSubtitle =
+  "Pro firmy, školy, kapely i jednotlivce. Od jednoho kusu po malé série – s náhledem a vzorkem před výrobou.";
 
 export const description =
   "TopProfit Textil – malá textilní dílna v Praze. Potisk triček, výroba našívek a úpravy sak na míru, od jednoho kusu po malé série.";

@@ -1,9 +1,10 @@
 import { faq } from "@/config/site";
 import { Reveal } from "./Reveal";
+import { toneBg, type Tone } from "@/lib/tone";
 
-export function Faq() {
+export function Faq({ tone }: { tone: Tone }) {
   return (
-    <section id="faq" aria-labelledby="faq-title" className="bg-paper py-20 md:py-32">
+    <section id="faq" aria-labelledby="faq-title" className={`${toneBg[tone]} py-20 md:py-32`}>
       <div className="container-x grid gap-16 lg:grid-cols-[1fr_1.4fr] lg:gap-24">
         <Reveal>
           <p className="eyebrow">FAQ</p>
