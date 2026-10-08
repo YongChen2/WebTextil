@@ -15,3 +15,6 @@ export const reviews: Review[] = [
   { quote: "DOPLNIT skutečnou citaci klienta", name: "DOPLNIT jméno", company: "DOPLNIT firmu" },
   { quote: "DOPLNIT skutečnou citaci klienta", name: "DOPLNIT jméno", company: "DOPLNIT firmu" },
 ];
+
+/** Sekce recenzí je viditelná jen se zapnutým přepínačem a aspoň jednou recenzí. */
+export const hasReviews = showReviews && reviews.length > 0;

@@ -1,9 +1,10 @@
 import { steps } from "@/data/content";
 import { Reveal } from "./Reveal";
+import { toneBg, type Tone } from "@/lib/tone";
 
-export function Process() {
+export function Process({ tone }: { tone: Tone }) {
   return (
-    <section id="postup" aria-labelledby="postup-title" className="bg-sand py-20 md:py-32">
+    <section id="postup" aria-labelledby="postup-title" className={`${toneBg[tone]} py-20 md:py-32`}>
       <div className="container-x">
         <Reveal>
           <p className="eyebrow">Postup</p>

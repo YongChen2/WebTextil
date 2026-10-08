@@ -6,5 +6,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: siteUrl, changeFrequency: "monthly", priority: 1 },
     { url: `${siteUrl}/obchodni-podminky`, changeFrequency: "yearly", priority: 0.3 },
     { url: `${siteUrl}/ochrana-osobnich-udaju`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${siteUrl}/cookies`, changeFrequency: "yearly", priority: 0.3 },
   ];
 }
