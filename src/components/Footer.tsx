@@ -20,7 +20,7 @@ export function Footer() {
       <div className="container-x grid gap-10 md:grid-cols-3">
         <div className="space-y-1">
           <p className="mb-3 font-serif text-2xl text-ink">{brand}</p>
-          <p>{name}</p>
+          <p>Provozovatel: {name}</p>
           <p>
             <span className="text-ink/60">{addressLabel}:</span> {address.street}, {address.postalCode}{" "}
             {address.city}

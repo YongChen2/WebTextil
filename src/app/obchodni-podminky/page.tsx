@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/LegalPage";
-import { address, contactPendingText, email, hasEmail, ico, name } from "@/config/site";
+import { address, contactPendingText, email, hasEmail, ico, operator } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Obchodní podmínky",
-  description: `Obchodní podmínky společnosti ${name}.`,
+  description: `Obchodní podmínky ${operator}`,
   alternates: { canonical: "/obchodni-podminky" },
 };
 
@@ -13,7 +13,7 @@ export default function ObchodniPodminky() {
     <LegalPage title="Obchodní podmínky">
       <h2>1. Úvodní ustanovení</h2>
       <p>
-        Tyto obchodní podmínky upravují vztahy mezi společností {name}, se sídlem {address.street},{" "}
+        Tyto obchodní podmínky upravují vztahy mezi {operator}, se sídlem {address.street},{" "}
         {address.postalCode} {address.city}, IČO: {ico} (dále jen „zhotovitel“), a zákazníkem při
         objednávce potisku textilu, výroby našívek a úprav oděvů.
       </p>

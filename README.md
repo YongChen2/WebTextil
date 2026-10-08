@@ -1,6 +1,6 @@
-# WebTextil
+# Jinsu Studio
 
-One-page web textilní dílny WebTextil (potisk triček, našívky, úpravy sak).
+One-page web textilní dílny Jinsu Studio (provozovatel TPT funding s.r.o.) (potisk triček, našívky, úpravy sak).
 Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 · framer-motion · Zod.
 
 ## Vývoj
@@ -14,7 +14,7 @@ npm run lint
 
 ## Kde co upravit
 
-- **Kontakty a firemní údaje:** `src/config/site.ts` (telefon, e-mail, IČO, adresa)
+- **Kontakty a firemní údaje:** `src/config/site.ts` (značka, telefon, e-mail, IČO, adresa, doména `siteUrl`)
 - **Texty služeb, galerie, postupu:** `src/data/content.ts`
 - **Fotky:** `public/images/` (seznam názvů viz `public/images/README.md`)
 - **Odeslání poptávky e-mailem:** `src/app/api/poptavka/route.ts` (TODO v kódu)

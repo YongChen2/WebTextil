@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalPage } from "@/components/LegalPage";
-import { name } from "@/config/site";
+import { address, brand, ico, operator } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Cookies",
-  description: `Informace o používání cookies na webu společnosti ${name}.`,
+  description: `Informace o používání cookies na webu ${operator}`,
   alternates: { canonical: "/cookies" },
 };
 
@@ -13,7 +13,7 @@ export default function Cookies() {
   return (
     <LegalPage title="Cookies" pendingReview={false}>
       <p>
-        Tento web nepoužívá marketingové ani analytické cookies. Proto se vás při návštěvě
+        Web {brand} nepoužívá marketingové ani analytické cookies. Proto se vás při návštěvě
         neptáme na souhlas a nezobrazujeme cookie lištu.
       </p>
       <h2>Měření návštěvnosti</h2>
@@ -24,6 +24,8 @@ export default function Cookies() {
       </p>
       <h2>Více informací</h2>
       <p>
+        {operator}, se sídlem {address.street}, {address.postalCode} {address.city}, IČO:{" "}
+        {ico}.{" "}
         Jak zpracováváme osobní údaje, najdete v zásadách{" "}
         <Link href="/ochrana-osobnich-udaju" className="link">
           ochrany osobních údajů

@@ -1,4 +1,4 @@
-import { brand, heroSubtitle, heroTrust } from "@/config/site";
+import { brand, heroSubtitle, heroTrust, tagline } from "@/config/site";
 import { HeroTitle } from "./HeroTitle";
 import { toneBg, type Tone } from "@/lib/tone";
 
@@ -13,7 +13,7 @@ export function Hero({ tone }: { tone: Tone }) {
             id="hero-title"
             className="hero-in max-w-6xl font-serif text-[44px] leading-[1] tracking-[-0.02em] [animation-delay:0.15s] sm:text-[64px] lg:text-[88px] xl:text-[104px]"
           >
-            Potisk triček, našívky a úpravy sak v&nbsp;Praze
+            {tagline}
           </h1>
         </HeroTitle>
         <p className="hero-in mt-8 max-w-xl text-lg leading-relaxed text-ink/70 [animation-delay:0.3s] md:text-2xl">

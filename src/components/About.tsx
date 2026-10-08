@@ -1,10 +1,10 @@
-import { claims } from "@/config/site";
+import { brand, claims } from "@/config/site";
 import { resolveSlot } from "@/lib/images";
 import { Media } from "./Media";
 import { Reveal } from "./Reveal";
 import { toneBg, type Tone } from "@/lib/tone";
 
-const teamImage = resolveSlot("o-nas", "Tým TopProfit Textil u tiskařského stolu");
+const teamImage = resolveSlot("o-nas", `Tým ${brand} u tiskařského stolu`);
 
 export function About({ tone }: { tone: Tone }) {
   return (

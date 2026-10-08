@@ -2,13 +2,16 @@
  * Centrální konfigurace webu. Kontaktní a firemní údaje měňte pouze zde.
  */
 
-/** Veřejná adresa webu – nastavte NEXT_PUBLIC_SITE_URL ve Vercelu (např. https://www.webtextil.cz). */
+/**
+ * Veřejná adresa webu – jediné místo s doménou (canonical, sitemap, robots, JSON-LD, OG).
+ * Doménu změňte zde, nebo ji přepište proměnnou NEXT_PUBLIC_SITE_URL ve Vercelu.
+ */
 export const siteUrl = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.webtextil.cz"
 ).replace(/\/$/, "");
 
 /** Obchodní značka zobrazovaná na webu. */
-export const brand = "TopProfit Textil";
+export const brand = "Jinsu Studio";
 
 /** Právní název provozovatele. */
 export const name = "TPT funding s.r.o.";
@@ -28,6 +31,9 @@ export const address = {
 
 export const addressLabel = "Sídlo společnosti";
 
+/** Označení provozovatele v právních textech. */
+export const operator = `${brand} – provozovatel ${name}`;
+
 export const registry =
   "Zapsáno v OR u Městského soudu v Praze, oddíl C, vložka 380929";
 
@@ -35,15 +41,15 @@ export const registry =
 export const phone: string = "+420 000 000 000";
 export const email: string = "info@example.cz";
 
-/** Krátký slogan pro titulek stránky, Open Graph a sdílení. */
-export const tagline = "Potisk, našívky a úpravy oděvů na míru";
+/** Hlavní sdělení: H1 v heru, titulek stránky, Open Graph a sdílení. */
+export const tagline = "Potisk triček, našívky a úpravy sak v Praze";
 
 /** Podnadpis pod H1 v heru. */
 export const heroSubtitle =
   "Pro firmy, školy, kapely i jednotlivce. Od jednoho kusu po malé série – s náhledem a vzorkem před výrobou.";
 
 export const description =
-  "TopProfit Textil – malá textilní dílna v Praze. Potisk triček, výroba našívek a úpravy sak na míru, od jednoho kusu po malé série.";
+  `${brand} – malá textilní dílna v Praze. Potisk triček, výroba našívek a úpravy sak na míru, od jednoho kusu po malé série.`;
 
 /** Telefon ve formátu pro odkaz tel: */
 export const phoneHref = `tel:${phone.replace(/\s+/g, "")}`;
