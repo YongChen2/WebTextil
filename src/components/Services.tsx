@@ -13,7 +13,7 @@ export function Services({ tone }: { tone: Tone }) {
         <Reveal>
           <p className="eyebrow">Služby</p>
           <h2 id="sluzby-title" className="section-title mt-6 max-w-4xl">
-            Tři řemesla, jedna dílna.
+            Tři řemesla, jeden kontakt.
           </h2>
         </Reveal>
         <ServicesScrolly services={items} />

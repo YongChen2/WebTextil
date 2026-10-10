@@ -81,7 +81,7 @@ export const imageSlots: Record<SlotId, SlotImage> = {
   },
 
   // O nás
-  // Kdo za tím stojí – DOPLNIT fotku (null = zástupná plocha)
+  // Kdo za tím stojí – dokud je null, fotka se v sekci O nás vůbec nezobrazí
   tym: null,
   "o-nas": {
     file: "atelier.webp",

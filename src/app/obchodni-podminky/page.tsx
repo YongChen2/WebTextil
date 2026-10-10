@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/LegalPage";
+import { partnerProduction } from "@/data/content";
 import {
   address,
   brand,
@@ -43,6 +44,11 @@ export default function ObchodniPodminky() {
         {address.street}, {address.postalCode} {address.city}, IČO {ico}, provozovatelem značky{" "}
         {brand} (dále jen „zhotovitel“), a zákazníkem (dále jen „objednatel“) při zhotovení
         potisku a výšivky textilu, výrobě nášivek a úpravách oděvů na zakázku.
+      </p>
+      <p>
+        Potisk flex a flock fóliemi, našívání a úpravy oděvů provádí zhotovitel ve vlastní dílně.
+        Výšivku, sítotisk a DTF potisk zajišťuje {partnerProduction}; za výsledek zakázky vůči
+        objednateli odpovídá zhotovitel.
       </p>
       <ul>
         <li>Provozovatel: {name}</li>

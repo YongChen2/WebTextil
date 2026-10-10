@@ -125,6 +125,10 @@ export default function OchranaOsobnichUdaju() {
         <li>Vercel Inc. – hosting webu a anonymní měření návštěvnosti,</li>
         <li>FormSubmit (formsubmit.co) – přeposlání obsahu poptávkového formuláře včetně přílohy e-mailem,</li>
         <li>poskytovatel e-mailové schránky, ve které poptávky přijímáme,</li>
+        <li>
+          partnerská výroba (výšivka, sítotisk, DTF) – pouze podklady a údaje nezbytné k výrobě
+          konkrétní zakázky,
+        </li>
         <li>účetní poradci v rozsahu nezbytném pro plnění zákonných povinností.</li>
       </ul>
       <p>

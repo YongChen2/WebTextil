@@ -1,5 +1,5 @@
 import { claims } from "@/config/site";
-import { equipment, teamLead } from "@/data/content";
+import { equipment, partnerProduction, teamLead } from "@/data/content";
 import { resolveSlot } from "@/lib/images";
 import { Media } from "./Media";
 import { Reveal } from "./Reveal";
@@ -21,11 +21,12 @@ export function About({ tone }: { tone: Tone }) {
           </Reveal>
           <Reveal delay={0.15} className="mt-10 max-w-xl space-y-6 text-lg leading-relaxed text-ink/70">
             <p>
-              Jsme malá textilní dílna. Potiskujeme trička, vyrábíme našívky a upravujeme
-              saka – pro firmy, školy, kapely, spolky i jednotlivce.
+              Jsme malé textilní studio pro firmy, školy, kapely, spolky i jednotlivce. Ve vlastní
+              dílně potiskujeme trička flex a flock fóliemi, našíváme nášivky a upravujeme saka.
+              Výšivku, sítotisk a DTF zajišťujeme {partnerProduction}.
             </p>
             <p>
-              V týmu jsou tiskaři, krejčová, grafik a člověk, který drží zakázky pohromadě.
+              O grafiku, výrobu i komunikaci se stará malý tým, který drží zakázky pohromadě.
               Každou zakázku vidí od začátku do konce stejní lidé, takže víte, s kým mluvíte.
             </p>
             <p>
@@ -49,15 +50,12 @@ export function About({ tone }: { tone: Tone }) {
         <Reveal>
           <h3 className="eyebrow">Kdo za tím stojí</h3>
           <div className="mt-8 flex flex-col gap-8 border-t border-ink pt-8 sm:flex-row">
-            <div className="relative aspect-[4/5] w-40 shrink-0 overflow-hidden">
-              <Media
-                src={leadImage.src}
-                file={leadImage.label}
-                alt={leadImage.alt}
-                available={leadImage.available}
-                sizes="160px"
-              />
-            </div>
+            {/* Fotka jen tehdy, když je v kolonce „tym“ reálná fotka – žádný placeholder. */}
+            {leadImage.available && (
+              <div className="relative aspect-[4/5] w-40 shrink-0 overflow-hidden">
+                <Media src={leadImage.src} file={leadImage.label} alt={leadImage.alt} available sizes="160px" />
+              </div>
+            )}
             <div>
               <p className="font-serif text-3xl tracking-[-0.02em]">{teamLead.name}</p>
               <p className="mt-2 text-sm text-ink/60">{teamLead.role}</p>

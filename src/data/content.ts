@@ -1,5 +1,8 @@
 import type { SlotId } from "@/config/images";
-import { claims } from "@/config/site";
+import { claims, workshop } from "@/config/site";
+
+/** Jednotná formulace pro technologie, které nevyrábíme ve vlastní dílně (výšivka, sítotisk, DTF). */
+export const partnerProduction = "ve spolupráci s partnerskou výrobou na profesionálních strojích";
 
 export type Category = "tricka" | "nasivky" | "saka";
 
@@ -24,11 +27,11 @@ export const services: Service[] = [
   {
     id: "tricka",
     title: "Potisk triček",
-    lead: "Sítotisk, DTF i digitální potisk na trička, mikiny a tašky. Od jednoho kusu pro radost po série pro firmy, kapely a akce.",
+    lead: `Potisk triček, mikin a tašek od jednoho kusu po série pro firmy, kapely a akce. Flex a flock fólie řežeme a nažehlujeme ve vlastní dílně, sítotisk a DTF zajišťujeme ${partnerProduction}.`,
     params: [
       "Minimální odběr od 1 ks",
-      `Sítotisk až ${claims.screenPrintColors} barev, DTF v plné barevnosti`,
-      "Bavlna, směsi i funkční materiály",
+      "Flex a flock fólie ve vlastní dílně",
+      `Sítotisk až ${claims.screenPrintColors} barev a DTF v plné barevnosti – ${partnerProduction}`,
       `Dodání obvykle do ${claims.deliveryTime}`,
     ],
     slot: "sluzba-trika",
@@ -37,9 +40,9 @@ export const services: Service[] = [
   {
     id: "nasivky",
     title: "Našívky",
-    lead: "Vyšívané a tkané našívky podle vašeho loga. Přišijeme je, nažehlíme nebo připravíme se suchým zipem.",
+    lead: `Vyšívané a tkané nášivky podle vašeho loga vyrábíme ${partnerProduction}. V dílně je přišijeme, nažehlíme nebo připravíme se suchým zipem.`,
     params: [
-      "Vyšívané, tkané i potištěné",
+      "Vyšívané, tkané i potištěné – partnerská výroba",
       "Velikost od 3 do 25 cm",
       "Zažehlovací, našívací nebo se suchým zipem",
       `Vzorek ${claims.sampleTime}`,
@@ -53,7 +56,7 @@ export const services: Service[] = [
     lead: "Zkrácení rukávů, zúžení, výměna knoflíků a našití emblémů na saka a uniformy. Pečlivě, ručně, s ohledem na střih.",
     params: [
       "Zkrácení a zúžení rukávů i trupu",
-      "Našití emblémů, monogramů a výšivek",
+      "Našití emblémů a nášivek, monogramy a výšivky ve spolupráci s partnerskou výrobou",
       "Výměna podšívky a knoflíků",
       "Firemní a školní uniformy v sériích",
     ],
@@ -133,40 +136,39 @@ export const footerPhotoNote = "Fotografie na webu jsou ilustrační (Unsplash a
 
 /** O nás – „Kdo za tím stojí“. Fotka se nastavuje v src/config/images.ts (slot „tym“). */
 export const teamLead = {
-  name: "[DOPLNIT jméno]",
-  role: "[DOPLNIT role, např. vedoucí dílny]",
-  text: "Stará se o to, aby každá zakázka prošla od náhledu přes výrobu až po kontrolu kvality stejnýma rukama. Je také mentorem studentů na odborné praxi.",
-  photoAlt: "[DOPLNIT] Portrét vedoucího dílny",
+  name: "Jin Chen",
+  role: "Zakladatel a vedoucí studia",
+  text: "Hlídá, aby každá zakázka prošla od náhledu přes výrobu až po kontrolu kvality stejnýma rukama. Studentům na odborné praxi dělá mentora – ukáže jim celý postup od přípravy grafiky po předání hotového kusu zákazníkovi.",
+  photoAlt: "Jin Chen, zakladatel a vedoucí studia",
 };
 
 /** O nás – „Vybavení dílny“. */
 export const equipment: string[] = [
-  "Vyšívací stroj – [DOPLNIT model, počet hlav a barev]",
-  "Termolis pro DTF a nažehlovací potisk – [DOPLNIT model, rozměr desky]",
-  "Sítotiskový karusel – [DOPLNIT model, počet barev]",
-  "DTF tiskárna – [DOPLNIT model]",
-  "Průmyslový šicí stroj a overlock – [DOPLNIT modely]",
+  "Termolis – nažehlení fólií a transferů na textil",
+  "Řezací plotr – vyřezávání motivů z flex a flock fólií",
+  "Šicí stroj – našívání nášivek a emblémů, úpravy oděvů",
+  "Počítač s grafickým softwarem – příprava a úprava podkladů pro výrobu",
 ];
 
 /** Stránka /praxe – praxe pro studenty a spolupráce se školami. */
 export const praxe = {
   title: "Praxe pro studenty a spolupráce se školami",
   description:
-    "Odborná praxe pro žáky textilních, oděvních a grafických oborů: potisk, výšivka, práce s materiály a kontrola kvality pod vedením mentora. Smlouva se školou, hodnocení i docházka.",
+    "Odborná praxe pro žáky textilních, oděvních a grafických oborů: příprava grafiky, potisk flex a flock fóliemi, práce s materiály a kontrola kvality pod vedením mentora. Smlouva se školou, hodnocení i docházka.",
   intro:
     "Nabízíme odbornou praxi pro žáky textilních, oděvních a grafických oborů. Studenti se zapojí do skutečných zakázek – od přípravy grafiky až po hotový kus předaný zákazníkovi.",
   learn: [
-    { title: "Příprava grafiky", text: "Úprava podkladů pro potisk a výšivku, vektorizace, volba barev a rozměrů podle technologie." },
-    { title: "Vyšívací stroj a termolis", text: "Obsluha vyšívacího stroje a termolisu, upínání textilu, nastavení teploty, tlaku a času." },
+    { title: "Příprava grafiky", text: "Úprava podkladů pro potisk i pro partnerskou výrobu (výšivka, sítotisk, DTF), vektorizace, volba barev a rozměrů podle technologie." },
+    { title: "Termolis a řezací plotr", text: "Řezání flex a flock fólií na plotru, vybírání motivů a nažehlení na termolisu – nastavení teploty, tlaku a času." },
     { title: "Práce s materiály", text: "Rozpoznání materiálů, výběr technologie podle textilu a správná péče o hotové výrobky." },
     { title: "Kontrola kvality", text: "Kontrola každého kusu, porovnání se schváleným náhledem a příprava k předání." },
     { title: "Komunikace se zákazníkem", text: "Jak probíhá poptávka, náhled a schválení – a jak srozumitelně vysvětlit technické možnosti." },
   ],
   howTitle: "Jak praxe probíhá",
   how: [
-    { label: "Odpovědná osoba (mentor)", value: "[DOPLNIT jméno]" },
-    { label: "Pracovní doba", value: "[DOPLNIT]" },
-    { label: "Místo", value: "[DOPLNIT adresa provozovny]" },
+    { label: "Odpovědná osoba (mentor)", value: "Jin Chen" },
+    { label: "Pracovní doba", value: "Dle dohody se školou" },
+    { label: "Místo", value: workshop.address },
     { label: "Hodnocení a docházka", value: "Průběžně vedeme docházku a na konci praxe vyplníme hodnocení žáka pro školu." },
   ],
   safety: [
