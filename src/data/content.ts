@@ -1,5 +1,5 @@
 import type { SlotId } from "@/config/images";
-import { claims } from "@/config/site";
+import { claims, email } from "@/config/site";
 
 export type Category = "tricka" | "nasivky" | "saka";
 
@@ -100,15 +100,19 @@ export const steps = [
 ];
 
 /** Drobný text pod nadpisem galerie. `null` = nezobrazí se. */
-export const galleryNote: string | null = "Ilustrační ukázky. Fotky skutečných zakázek doplníme.";
+export const galleryNote: string | null =
+  "Fotografie v galerii jsou ilustrační. Na přání našich zákazníků fotky jejich zakázek veřejně nezveřejňujeme. Ukázky reálných realizovaných zakázek vám rádi zašleme e-mailem na vyžádání.";
 
-/** Blok pod galerií – portfolio reálných zakázek posíláme jen na vyžádání. */
+/** Blok pod galerií – ukázky reálných zakázek posíláme jen e-mailem na vyžádání. */
 export const portfolioCta = {
   title: "Chcete vidět naše reálné zakázky?",
-  text: "Fotografie na webu jsou ilustrační. Portfolio s fotkami z realizovaných zakázek vám rádi pošleme na vyžádání.",
-  button: "Vyžádat portfolio",
+  text: "Fotky zakázek našich zákazníků veřejně neukazujeme. Ukázky realizovaných zakázek vám rádi zašleme e-mailem – stačí si o ně napsat.",
+  button: "Vyžádat ukázky zakázek",
   /** Odkaz na formulář s předvyplněnou službou (viz inquiryPresets). */
   href: "/?predmet=portfolio#kontakt",
+  /** Alternativa k formuláři – přímo e-mail. */
+  email,
+  emailSubject: "Ukázky zakázek",
 };
 
 /**
@@ -117,8 +121,8 @@ export const portfolioCta = {
  */
 export const inquiryPresets: Record<string, { sluzba: string; zprava: string }> = {
   portfolio: {
-    sluzba: "Portfolio",
-    zprava: "Dobrý den, prosím o zaslání portfolia s fotkami realizovaných zakázek.",
+    sluzba: "Ukázky zakázek",
+    zprava: "Dobrý den, prosím o zaslání ukázek realizovaných zakázek e-mailem.",
   },
 };
 

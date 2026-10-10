@@ -80,7 +80,7 @@ const hasFormSubmitId = formSubmitId.trim() !== "" && formSubmitId !== FORMSUBMI
 export const inquiryEndpoint = `https://formsubmit.co/ajax/${hasFormSubmitId ? formSubmitId : email}`;
 
 /** Možnosti pole „Služba“ ve formuláři. */
-export const inquiryServices = ["Potisk triček", "Našívky", "Úpravy sak", "Portfolio", "Jiné"] as const;
+export const inquiryServices = ["Potisk triček", "Našívky", "Úpravy sak", "Ukázky zakázek", "Jiné"] as const;
 
 /**
  * Tvrzení o provozu, která je potřeba potvrdit s klientem před spuštěním.

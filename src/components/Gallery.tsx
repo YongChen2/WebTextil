@@ -22,9 +22,22 @@ export function Gallery({ tone }: { tone: Tone }) {
           <h3 className="font-serif text-3xl leading-tight tracking-[-0.02em] md:text-4xl">{portfolioCta.title}</h3>
           <div>
             <p className="max-w-xl text-lg leading-relaxed text-ink/70">{portfolioCta.text}</p>
-            <a href={portfolioCta.href} className="btn-outline mt-8">
-              {portfolioCta.button}
-            </a>
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+              <a href={portfolioCta.href} className="btn-outline">
+                {portfolioCta.button}
+              </a>
+              {portfolioCta.email && (
+                <p className="text-sm text-ink/70">
+                  nebo napište na{" "}
+                  <a
+                    href={`mailto:${portfolioCta.email}?subject=${encodeURIComponent(portfolioCta.emailSubject)}`}
+                    className="link"
+                  >
+                    {portfolioCta.email}
+                  </a>
+                </p>
+              )}
+            </div>
           </div>
         </Reveal>
       </div>

@@ -66,7 +66,7 @@ export function ContactForm() {
   const [status, setStatus] = useState<Status>({ state: "idle" });
   const formRef = useRef<HTMLFormElement>(null);
 
-  // Předvyplnění podle ?predmet=… (např. tlačítko „Vyžádat portfolio“ pod galerií).
+  // Předvyplnění podle ?predmet=… (např. tlačítko „Vyžádat ukázky zakázek“ pod galerií).
   useEffect(() => {
     const preset = inquiryPresets[new URLSearchParams(window.location.search).get("predmet") ?? ""];
     const form = formRef.current;
