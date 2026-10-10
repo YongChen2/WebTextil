@@ -86,7 +86,9 @@ export default function ObchodniPodminky() {
       <h2>4. Cena a platební podmínky</h2>
       <p>
         Cena zakázky je uvedena v nabídce.{" "}
-        {vatPayer ? "Ceny jsou uvedeny včetně DPH." : "Zhotovitel není plátcem DPH."} Cena se platí
+        {vatPayer
+          ? "Zhotovitel je plátcem DPH. Ceny jsou uváděny bez DPH, pokud není uvedeno jinak; DPH se připočítává v zákonné výši."
+          : "Zhotovitel není plátcem DPH."} Cena se platí
         bankovním převodem na základě faktury se splatností uvedenou na faktuře.
       </p>
       <p>

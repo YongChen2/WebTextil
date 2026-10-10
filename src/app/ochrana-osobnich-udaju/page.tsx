@@ -91,7 +91,6 @@ export default function OchranaOsobnichUdaju() {
       </p>
 
       <h2>4. Doba uložení</h2>
-      {/* OVĚŘIT S KLIENTEM: lhůta 12 měsíců pro poptávky bez uzavřené zakázky */}
       <ul>
         <li>Poptávky, ze kterých nevznikla zakázka: nejdéle 12 měsíců od posledního kontaktu.</li>
         <li>
@@ -110,10 +109,11 @@ export default function OchranaOsobnichUdaju() {
         <li>poskytovatel e-mailové schránky, ve které poptávky přijímáme.</li>
       </ul>
       <p>
-        Někteří zpracovatelé mohou údaje zpracovávat i mimo Evropskou unii (např. v USA). Takové
-        předání probíhá pouze na základě rozhodnutí Evropské komise o odpovídající ochraně nebo
-        standardních smluvních doložek. Orgánům veřejné moci poskytujeme údaje jen tehdy, když nám
-        to ukládá zákon.
+        Zpracovatelé Vercel Inc. a FormSubmit mohou osobní údaje zpracovávat ve Spojených státech
+        amerických. Předání do USA probíhá na základě rámce EU-US Data Privacy Framework (rozhodnutí
+        Evropské komise o odpovídající ochraně), případně na základě standardních smluvních doložek
+        schválených Evropskou komisí. Orgánům veřejné moci poskytujeme údaje jen tehdy, když nám to
+        ukládá zákon.
       </p>
 
       <h2>6. Vaše práva</h2>

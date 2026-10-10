@@ -35,11 +35,14 @@ export const addressLabel = "Sídlo společnosti";
 export const registry =
   "Zapsáno v OR u Městského soudu v Praze, oddíl C, vložka 380929";
 
-// DOPLNIT: DIČ – ARES ho neuvádí (společnost není v registru plátců DPH). Zobrazuje se na právních stránkách.
-export const dic = "[DOPLNIT]";
+/** DIČ = "CZ" + IČO. */
+export const dic = `CZ${ico.replace(/\s/g, "")}`;
 
-/** Plátce DPH – podle ARES ne (registr DPH: neexistující záznam, stav k 4. 9. 2026). */
-export const vatPayer = false;
+/**
+ * Plátce DPH – podle sdělení provozovatele ano. Registr plátců DPH (ADIS) ani VIES
+ * to k 10. 10. 2026 ještě nepotvrdily (registrace může být čerstvá).
+ */
+export const vatPayer = true;
 
 /** Telefon – `null` = na webu se nezobrazuje. */
 // Typ přes `as`, aby TypeScript hodnotu null nezúžil a šlo ji později jen přepsat na řetězec.

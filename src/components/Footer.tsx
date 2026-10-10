@@ -8,6 +8,7 @@ import {
   email,
   hasEmail,
   hasPhone,
+  dic,
   ico,
   name,
   phone,
@@ -27,6 +28,7 @@ export function Footer() {
             {address.city}
           </p>
           <p>IČO: {ico}</p>
+          <p>DIČ: {dic}</p>
         </div>
 
         <div className="space-y-1">

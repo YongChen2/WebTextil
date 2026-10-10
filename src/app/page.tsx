@@ -19,6 +19,7 @@ import {
   faq,
   hasEmail,
   hasPhone,
+  dic,
   ico,
   name,
   phone,
@@ -39,6 +40,7 @@ const jsonLd = {
   ...(hasPhone && { telephone: phone }),
   ...(hasEmail && { email }),
   taxID: ico.replace(/\s/g, ""),
+  vatID: dic,
   address: {
     "@type": "PostalAddress",
     streetAddress: address.street,
