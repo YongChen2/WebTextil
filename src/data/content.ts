@@ -1,5 +1,5 @@
 import type { SlotId } from "@/config/images";
-import { claims, email } from "@/config/site";
+import { claims } from "@/config/site";
 
 export type Category = "tricka" | "nasivky" | "saka";
 
@@ -99,20 +99,18 @@ export const steps = [
   },
 ];
 
-/** Drobný text pod nadpisem galerie. `null` = nezobrazí se. */
-export const galleryNote: string | null =
-  "Fotografie v galerii jsou ilustrační. Na přání našich zákazníků fotky jejich zakázek nezveřejňujeme. Ukázky reálných realizovaných zakázek vám rádi zašleme e-mailem na vyžádání.";
+/** Info box pod nadpisem galerie – `lead` je tučně. `null` = nezobrazí se. */
+export const galleryNote: { lead: string; text: string } | null = {
+  lead: "Fotografie v galerii jsou ilustrační.",
+  text: "Zakázky našich zákazníků obsahují jejich loga, grafiku a další autorská díla, ke kterým nám nepřísluší právo je veřejně šířit. Z tohoto důvodu a na přání zákazníků fotky jejich zakázek nezveřejňujeme. Ukázky reálných realizovaných zakázek vám rádi zašleme e-mailem na vyžádání.",
+};
 
-/** Blok pod galerií – ukázky reálných zakázek posíláme jen e-mailem na vyžádání. */
+/** Blok pod galerií – vysvětlení je v info boxu nad galerií, tady jen výzva. */
 export const portfolioCta = {
   title: "Chcete vidět naše reálné zakázky?",
-  text: "Fotky zakázek našich zákazníků veřejně neukazujeme. Ukázky realizovaných zakázek vám rádi zašleme e-mailem – stačí si o ně napsat.",
   button: "Vyžádat ukázky zakázek",
   /** Odkaz na formulář s předvyplněnou službou (viz inquiryPresets). */
   href: "/?predmet=portfolio#kontakt",
-  /** Alternativa k formuláři – přímo e-mail. */
-  email,
-  emailSubject: "Ukázky zakázek",
 };
 
 /**
@@ -127,4 +125,4 @@ export const inquiryPresets: Record<string, { sluzba: string; zprava: string }> 
 };
 
 /** Poznámka v patičce. */
-export const footerPhotoNote = "Fotografie na webu jsou ilustrační.";
+export const footerPhotoNote = "Fotografie na webu jsou ilustrační (Unsplash a vlastní ilustrace).";
