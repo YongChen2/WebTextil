@@ -14,8 +14,8 @@ export const siteUrl = (
 export const brand = "Jinsu Studio";
 
 /*
- * Údaje provozovatele přebírá web z topprofitdesign.cz (stejná firma TPT funding s.r.o.);
- * mají přednost před ARES. DIČ a spisovou značku topprofitdesign.cz neuvádí – ty jsou z ARES.
+ * Údaje provozovatele TPT funding s.r.o. Sídlo a spisová značka podle ARES (sídlo zapsáno
+ * 20. 8. 2026); texty na topprofitdesign.cz uvádějí starší adresu.
  */
 
 /** Právní název provozovatele. */
@@ -24,13 +24,13 @@ export const name = "TPT funding s.r.o.";
 export const ico = "19067640";
 
 /**
- * Sídlo společnosti. Není to dílna ani provozovna –
+ * Sídlo společnosti podle ARES. Není to dílna ani provozovna –
  * na webu se vždy zobrazuje s označením `addressLabel`.
  */
 export const address = {
-  street: "Bělehradská 858/23",
-  postalCode: "120 00",
-  city: "Praha 2 – Vinohrady",
+  street: "Kurzova 2222/16",
+  postalCode: "155 00",
+  city: "Praha 5 – Stodůlky",
   country: "CZ",
 } as const;
 
@@ -48,7 +48,7 @@ export const vatPayer: boolean = false;
 
 /** Telefon – `null` = na webu se nezobrazuje. */
 // Typ přes `as`, aby TypeScript hodnotu nezúžil a šlo ji přepsat i na null.
-export const phone = "+420 730 336 337" as string | null;
+export const phone = "+420 604 668 908" as string | null;
 export const email: string = "info@jinsustudio.cz";
 
 /** Hlavní sdělení: H1 v heru, titulek stránky, Open Graph a sdílení. */
