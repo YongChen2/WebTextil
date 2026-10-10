@@ -38,13 +38,11 @@ export const addressLabel = "Sídlo společnosti";
 
 /**
  * Provozovna / dílna – místo, kde se zakázky vyrábějí (liší se od sídla).
- * `address: null` = zatím se neuvádí: blok v kontaktu a patičce se skryje,
- * na /praxe se zobrazí `fallback`.
+ * `address: null` = zatím se neuvádí, blok v kontaktu a patičce se skryje.
  */
 export const workshop = {
   label: "Provozovna / dílna",
   address: null as string | null,
-  fallback: "Upřesníme škole při domluvě praxe",
 };
 
 /** Spisová značka (ARES): C 380929 vedená u Městského soudu v Praze. */
@@ -67,7 +65,7 @@ export const tagline = "Potisk triček, našívky a úpravy sak v Praze";
 
 /** Podnadpis pod H1 v heru. */
 export const heroSubtitle =
-  "Pro firmy, školy, kapely i jednotlivce. Od jednoho kusu po malé série – s náhledem a vzorkem před výrobou.";
+  "Pro firmy, kapely, spolky i jednotlivce. Od jednoho kusu po malé série – s náhledem a vzorkem před výrobou.";
 
 export const description =
   `${brand} – malá textilní dílna v Praze. Potisk triček, výroba našívek a úpravy sak na míru, od jednoho kusu po malé série.`;
@@ -103,7 +101,7 @@ const hasFormSubmitId = formSubmitId.trim() !== "" && formSubmitId !== FORMSUBMI
 export const inquiryEndpoint = `https://formsubmit.co/ajax/${hasFormSubmitId ? formSubmitId : email}`;
 
 /** Možnosti pole „Služba“ ve formuláři. */
-export const inquiryServices = ["Potisk triček", "Našívky", "Úpravy sak", "Ukázky zakázek", "Praxe / spolupráce se školou", "Jiné"] as const;
+export const inquiryServices = ["Potisk triček", "Našívky", "Úpravy sak", "Ukázky zakázek", "Jiné"] as const;
 
 /**
  * Tvrzení o provozu, která je potřeba potvrdit s klientem před spuštěním.

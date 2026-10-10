@@ -1,5 +1,5 @@
 import type { SlotId } from "@/config/images";
-import { claims, workshop } from "@/config/site";
+import { claims } from "@/config/site";
 
 /** Jednotná formulace pro technologie, které nevyrábíme ve vlastní dílně (výšivka, sítotisk, DTF). */
 export const partnerProduction = "ve spolupráci s partnerskou výrobou na profesionálních strojích";
@@ -58,7 +58,7 @@ export const services: Service[] = [
       "Zkrácení a zúžení rukávů i trupu",
       "Našití emblémů a nášivek, monogramy a výšivky ve spolupráci s partnerskou výrobou",
       "Výměna podšívky a knoflíků",
-      "Firemní a školní uniformy v sériích",
+      "Firemní uniformy v sériích",
     ],
     slot: "sluzba-saka",
     alt: "Dvě tmavě modrá saka na dřevěných ramínkách před světlou stěnou",
@@ -125,10 +125,7 @@ export const inquiryPresets: Record<string, { sluzba: string; zprava: string }> 
     sluzba: "Ukázky zakázek",
     zprava: "Dobrý den, prosím o zaslání ukázek realizovaných zakázek e-mailem.",
   },
-  praxe: {
-    sluzba: "Praxe / spolupráce se školou",
-    zprava: "Dobrý den, máme zájem o odbornou praxi pro naše žáky.\nŠkola a obor:\nPočet žáků:\nTermín praxe:",
-  },
+
 };
 
 /** Poznámka v patičce. */
@@ -137,9 +134,9 @@ export const footerPhotoNote = "Fotografie na webu jsou ilustrační (Unsplash a
 /** O nás – „Kdo za tím stojí“. Fotka se nastavuje v src/config/images.ts (slot „tym“). */
 export const teamLead = {
   name: "Jin Chen",
-  role: "Vedoucí studia a mentor studentů",
-  text: "Spravuje a řídí provoz studia, komunikuje se zákazníky i s partnerskou výrobou a vede studenty na odborné praxi.",
-  photoAlt: "Jin Chen, vedoucí studia a mentor studentů",
+  role: "Vedoucí studia",
+  text: "Spravuje a řídí provoz studia, komunikuje se zákazníky i s partnerskou výrobou a hlídá, aby každá zakázka prošla od náhledu až po kontrolu kvality.",
+  photoAlt: "Jin Chen, vedoucí studia",
 };
 
 /** Vazba na mateřské studio – O nás („Kdo za tím stojí“) a patička. */
@@ -159,38 +156,3 @@ export const equipment: string[] = [
   "Šicí stroj – našívání nášivek a emblémů, úpravy oděvů",
   "Počítač s grafickým softwarem – příprava a úprava podkladů pro výrobu",
 ];
-
-/** Stránka /praxe – praxe pro studenty a spolupráce se školami. */
-export const praxe = {
-  title: "Praxe pro studenty a spolupráce se školami",
-  description:
-    "Odborná praxe pro žáky textilních, oděvních a grafických oborů: příprava grafiky, potisk flex a flock fóliemi, práce s materiály a kontrola kvality pod vedením mentora. Smlouva se školou, hodnocení i docházka.",
-  intro:
-    "Nabízíme odbornou praxi pro žáky textilních, oděvních a grafických oborů. Studenti se zapojí do skutečných zakázek – od přípravy grafiky až po hotový kus předaný zákazníkovi.",
-  learn: [
-    { title: "Příprava grafiky", text: "Úprava podkladů pro potisk i pro partnerskou výrobu (výšivka, sítotisk, DTF), vektorizace, volba barev a rozměrů podle technologie." },
-    { title: "Termolis a řezací plotr", text: "Řezání flex a flock fólií na plotru, vybírání motivů a nažehlení na termolisu – nastavení teploty, tlaku a času." },
-    { title: "Práce s materiály", text: "Rozpoznání materiálů, výběr technologie podle textilu a správná péče o hotové výrobky." },
-    { title: "Kontrola kvality", text: "Kontrola každého kusu, porovnání se schváleným náhledem a příprava k předání." },
-    { title: "Komunikace se zákazníkem", text: "Jak probíhá poptávka, náhled a schválení – a jak srozumitelně vysvětlit technické možnosti." },
-  ],
-  howTitle: "Jak praxe probíhá",
-  how: [
-    { label: "Odpovědná osoba (mentor)", value: "Jin Chen, vedoucí studia" },
-    { label: "Pracovní doba", value: "Dle dohody se školou" },
-    { label: "Místo", value: workshop.address ?? workshop.fallback },
-    { label: "Hodnocení a docházka", value: "Průběžně vedeme docházku a na konci praxe vyplníme hodnocení žáka pro školu." },
-  ],
-  safety: [
-    "První den proškolení BOZP a seznámení s provozem dílny.",
-    "Ochranné pomůcky zajistíme.",
-    "Se stroji žáci pracují vždy pod dohledem mentora.",
-  ],
-  schools: [
-    "Uzavíráme smlouvu o zajištění odborné praxe.",
-    "Vyplníme hodnocení žáka podle požadavků školy.",
-    "Potvrdíme docházku.",
-  ],
-  cta: "Kontaktovat ohledně praxe",
-  ctaHref: "/?predmet=praxe#kontakt",
-};

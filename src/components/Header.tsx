@@ -14,8 +14,6 @@ const nav: { href: string; label: string; short?: string }[] = [
   { href: "/#postup", label: "Jak pracujeme" },
   { href: "/#o-nas", label: "O nás" },
   { href: "/#faq", label: "FAQ" },
-  // Na desktopu krátký popisek, aby se navigace vešla i na šířce 768 px.
-  { href: "/praxe", label: "Praxe pro studenty", short: "Praxe" },
 ];
 
 const MENU_ID = "mobilni-menu";

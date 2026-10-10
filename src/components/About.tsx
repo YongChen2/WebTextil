@@ -21,7 +21,7 @@ export function About({ tone }: { tone: Tone }) {
           </Reveal>
           <Reveal delay={0.15} className="mt-10 max-w-xl space-y-6 text-lg leading-relaxed text-ink/70">
             <p>
-              Jsme malé textilní studio pro firmy, školy, kapely, spolky i jednotlivce. Ve vlastní
+              Jsme malé textilní studio pro firmy, kapely, spolky i jednotlivce. Ve vlastní
               dílně potiskujeme trička flex a flock fóliemi, našíváme nášivky a upravujeme saka.
               Výšivku, sítotisk a DTF zajišťujeme {partnerProduction}.
             </p>

@@ -75,11 +75,6 @@ export function Footer() {
             </Link>
           </p>
           <p>
-            <Link href="/praxe" className="link">
-              Praxe pro studenty
-            </Link>
-          </p>
-          <p>
             <Link href="/cookies" className="link">
               Cookies
             </Link>
