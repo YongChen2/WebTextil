@@ -11,6 +11,7 @@ import {
   phone,
   phoneHref,
   showroom,
+  workshop,
 } from "@/config/site";
 import { ContactForm } from "./ContactForm";
 import { Reveal } from "./Reveal";
@@ -55,6 +56,10 @@ export function Contact({ tone }: { tone: Tone }) {
               {address.street}
               <br />
               {address.postalCode} {address.city}
+            </p>
+            <p className="pt-4 text-ink/70">
+              <span className="eyebrow block pb-2">{workshop.label}</span>
+              {workshop.address}
             </p>
           </address>
           {showroom.enabled && showroom.mapEmbedUrl && (

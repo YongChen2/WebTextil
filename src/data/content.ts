@@ -122,7 +122,63 @@ export const inquiryPresets: Record<string, { sluzba: string; zprava: string }> 
     sluzba: "Ukázky zakázek",
     zprava: "Dobrý den, prosím o zaslání ukázek realizovaných zakázek e-mailem.",
   },
+  praxe: {
+    sluzba: "Praxe / spolupráce se školou",
+    zprava: "Dobrý den, máme zájem o odbornou praxi pro naše žáky.\nŠkola a obor:\nPočet žáků:\nTermín praxe:",
+  },
 };
 
 /** Poznámka v patičce. */
 export const footerPhotoNote = "Fotografie na webu jsou ilustrační (Unsplash a vlastní ilustrace).";
+
+/** O nás – „Kdo za tím stojí“. Fotka se nastavuje v src/config/images.ts (slot „tym“). */
+export const teamLead = {
+  name: "[DOPLNIT jméno]",
+  role: "[DOPLNIT role, např. vedoucí dílny]",
+  text: "Stará se o to, aby každá zakázka prošla od náhledu přes výrobu až po kontrolu kvality stejnýma rukama. Je také mentorem studentů na odborné praxi.",
+  photoAlt: "[DOPLNIT] Portrét vedoucího dílny",
+};
+
+/** O nás – „Vybavení dílny“. */
+export const equipment: string[] = [
+  "Vyšívací stroj – [DOPLNIT model, počet hlav a barev]",
+  "Termolis pro DTF a nažehlovací potisk – [DOPLNIT model, rozměr desky]",
+  "Sítotiskový karusel – [DOPLNIT model, počet barev]",
+  "DTF tiskárna – [DOPLNIT model]",
+  "Průmyslový šicí stroj a overlock – [DOPLNIT modely]",
+];
+
+/** Stránka /praxe – praxe pro studenty a spolupráce se školami. */
+export const praxe = {
+  title: "Praxe pro studenty a spolupráce se školami",
+  description:
+    "Odborná praxe pro žáky textilních, oděvních a grafických oborů: potisk, výšivka, práce s materiály a kontrola kvality pod vedením mentora. Smlouva se školou, hodnocení i docházka.",
+  intro:
+    "Nabízíme odbornou praxi pro žáky textilních, oděvních a grafických oborů. Studenti se zapojí do skutečných zakázek – od přípravy grafiky až po hotový kus předaný zákazníkovi.",
+  learn: [
+    { title: "Příprava grafiky", text: "Úprava podkladů pro potisk a výšivku, vektorizace, volba barev a rozměrů podle technologie." },
+    { title: "Vyšívací stroj a termolis", text: "Obsluha vyšívacího stroje a termolisu, upínání textilu, nastavení teploty, tlaku a času." },
+    { title: "Práce s materiály", text: "Rozpoznání materiálů, výběr technologie podle textilu a správná péče o hotové výrobky." },
+    { title: "Kontrola kvality", text: "Kontrola každého kusu, porovnání se schváleným náhledem a příprava k předání." },
+    { title: "Komunikace se zákazníkem", text: "Jak probíhá poptávka, náhled a schválení – a jak srozumitelně vysvětlit technické možnosti." },
+  ],
+  howTitle: "Jak praxe probíhá",
+  how: [
+    { label: "Odpovědná osoba (mentor)", value: "[DOPLNIT jméno]" },
+    { label: "Pracovní doba", value: "[DOPLNIT]" },
+    { label: "Místo", value: "[DOPLNIT adresa provozovny]" },
+    { label: "Hodnocení a docházka", value: "Průběžně vedeme docházku a na konci praxe vyplníme hodnocení žáka pro školu." },
+  ],
+  safety: [
+    "První den proškolení BOZP a seznámení s provozem dílny.",
+    "Ochranné pomůcky zajistíme.",
+    "Se stroji žáci pracují vždy pod dohledem mentora.",
+  ],
+  schools: [
+    "Uzavíráme smlouvu o zajištění odborné praxe.",
+    "Vyplníme hodnocení žáka podle požadavků školy.",
+    "Potvrdíme docházku.",
+  ],
+  cta: "Kontaktovat ohledně praxe",
+  ctaHref: "/?predmet=praxe#kontakt",
+};

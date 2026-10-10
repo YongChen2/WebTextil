@@ -6,7 +6,7 @@ import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { brand, showPrices } from "@/config/site";
 import { EASE } from "./Reveal";
 
-const nav = [
+const nav: { href: string; label: string; short?: string }[] = [
   { href: "/#sluzby", label: "Služby" },
   // Odkaz na ceny jen tehdy, když je sekce #ceny viditelná.
   ...(showPrices ? [{ href: "/#ceny", label: "Ceny" }] : []),
@@ -14,6 +14,8 @@ const nav = [
   { href: "/#postup", label: "Jak pracujeme" },
   { href: "/#o-nas", label: "O nás" },
   { href: "/#faq", label: "FAQ" },
+  // Na desktopu krátký popisek, aby se navigace vešla i na šířce 768 px.
+  { href: "/praxe", label: "Praxe pro studenty", short: "Praxe" },
 ];
 
 const MENU_ID = "mobilni-menu";
@@ -95,7 +97,7 @@ export function Header() {
             {nav.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="text-ink/70 transition-colors hover:text-ink">
-                  {item.label}
+                  {item.short ?? item.label}
                 </Link>
               </li>
             ))}

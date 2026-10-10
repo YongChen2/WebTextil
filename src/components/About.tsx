@@ -1,10 +1,12 @@
 import { claims } from "@/config/site";
+import { equipment, teamLead } from "@/data/content";
 import { resolveSlot } from "@/lib/images";
 import { Media } from "./Media";
 import { Reveal } from "./Reveal";
 import { toneBg, type Tone } from "@/lib/tone";
 
 const teamImage = resolveSlot("o-nas", "Světlý ateliér se stoly s rozloženými látkami, regálem a stojany s oblečením");
+const leadImage = resolveSlot("tym", teamLead.photoAlt);
 
 export function About({ tone }: { tone: Tone }) {
   return (
@@ -41,6 +43,38 @@ export function About({ tone }: { tone: Tone }) {
             sizes="(min-width: 1024px) 50vw, 100vw"
           />
         </div>
+      </div>
+
+      <div className="container-x mt-20 grid gap-16 md:mt-32 lg:grid-cols-2 lg:gap-24">
+        <Reveal>
+          <h3 className="eyebrow">Kdo za tím stojí</h3>
+          <div className="mt-8 flex flex-col gap-8 border-t border-ink pt-8 sm:flex-row">
+            <div className="relative aspect-[4/5] w-40 shrink-0 overflow-hidden">
+              <Media
+                src={leadImage.src}
+                file={leadImage.label}
+                alt={leadImage.alt}
+                available={leadImage.available}
+                sizes="160px"
+              />
+            </div>
+            <div>
+              <p className="font-serif text-3xl tracking-[-0.02em]">{teamLead.name}</p>
+              <p className="mt-2 text-sm text-ink/60">{teamLead.role}</p>
+              <p className="mt-6 leading-relaxed text-ink/70">{teamLead.text}</p>
+            </div>
+          </div>
+        </Reveal>
+        <Reveal delay={0.15}>
+          <h3 className="eyebrow">Vybavení dílny</h3>
+          <ul className="mt-8 divide-y divide-ink/10 border-y border-ink/10">
+            {equipment.map((item) => (
+              <li key={item} className="py-4 leading-relaxed">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </div>
     </section>
   );

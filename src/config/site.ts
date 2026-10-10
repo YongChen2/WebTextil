@@ -36,6 +36,15 @@ export const address = {
 
 export const addressLabel = "Sídlo společnosti";
 
+/**
+ * Provozovna / dílna – místo, kde se zakázky vyrábějí (liší se od sídla).
+ * `[DOPLNIT …]` se na webu zobrazuje viditelně, dokud se nevyplní.
+ */
+export const workshop = {
+  label: "Provozovna / dílna",
+  address: "[DOPLNIT adresa provozovny]",
+};
+
 /** Spisová značka (ARES): C 380929 vedená u Městského soudu v Praze. */
 export const registry =
   "Zapsáno v OR u Městského soudu v Praze, oddíl C, vložka 380929";
@@ -92,7 +101,7 @@ const hasFormSubmitId = formSubmitId.trim() !== "" && formSubmitId !== FORMSUBMI
 export const inquiryEndpoint = `https://formsubmit.co/ajax/${hasFormSubmitId ? formSubmitId : email}`;
 
 /** Možnosti pole „Služba“ ve formuláři. */
-export const inquiryServices = ["Potisk triček", "Našívky", "Úpravy sak", "Ukázky zakázek", "Jiné"] as const;
+export const inquiryServices = ["Potisk triček", "Našívky", "Úpravy sak", "Ukázky zakázek", "Praxe / spolupráce se školou", "Jiné"] as const;
 
 /**
  * Tvrzení o provozu, která je potřeba potvrdit s klientem před spuštěním.

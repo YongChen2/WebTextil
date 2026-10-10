@@ -14,6 +14,7 @@ import {
   phone,
   phoneHref,
   registry,
+  workshop,
 } from "@/config/site";
 
 export function Footer() {
@@ -26,6 +27,9 @@ export function Footer() {
           <p>
             <span className="text-ink/60">{addressLabel}:</span> {address.street}, {address.postalCode}{" "}
             {address.city}
+          </p>
+          <p>
+            <span className="text-ink/60">{workshop.label}:</span> {workshop.address}
           </p>
           <p>IČO: {ico}</p>
           <p>DIČ: {dic}</p>
@@ -60,6 +64,11 @@ export function Footer() {
           <p>
             <Link href="/ochrana-osobnich-udaju" className="link">
               Ochrana osobních údajů (GDPR)
+            </Link>
+          </p>
+          <p>
+            <Link href="/praxe" className="link">
+              Praxe pro studenty
             </Link>
           </p>
           <p>

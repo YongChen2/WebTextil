@@ -22,7 +22,8 @@ export type SlotId =
   | "galerie-07"
   | "galerie-08"
   | "galerie-09"
-  | "o-nas";
+  | "o-nas"
+  | "tym";
 
 export type SlotImage = { file: string; alt: string } | null;
 
@@ -80,6 +81,8 @@ export const imageSlots: Record<SlotId, SlotImage> = {
   },
 
   // O nás
+  // Kdo za tím stojí – DOPLNIT fotku (null = zástupná plocha)
+  tym: null,
   "o-nas": {
     file: "atelier.webp",
     alt: "Světlý ateliér se stoly s rozloženými látkami, regálem a stojany s oblečením",
