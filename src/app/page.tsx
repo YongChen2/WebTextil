@@ -26,6 +26,7 @@ import {
   showPrices,
   showroom,
   siteUrl,
+  vatPayer,
 } from "@/config/site";
 import type { Tone } from "@/lib/tone";
 
@@ -40,7 +41,8 @@ const jsonLd = {
   ...(hasPhone && { telephone: phone }),
   ...(hasEmail && { email }),
   taxID: ico.replace(/\s/g, ""),
-  vatID: dic,
+  // vatID (DIČ pro DPH) jen u plátce DPH.
+  ...(vatPayer && { vatID: dic }),
   address: {
     "@type": "PostalAddress",
     streetAddress: address.street,

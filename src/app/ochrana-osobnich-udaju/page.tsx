@@ -1,7 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalPage } from "@/components/LegalPage";
-import { address, brand, contactPendingText, dic, email, hasEmail, ico, name, registry } from "@/config/site";
+import {
+  address,
+  brand,
+  contactPendingText,
+  dic,
+  email,
+  hasEmail,
+  hasPhone,
+  ico,
+  name,
+  phone,
+  phoneHref,
+  registry,
+} from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Ochrana osobních údajů",
@@ -37,6 +50,14 @@ export default function OchranaOsobnichUdaju() {
         <li>
           E-mail pro dotazy k osobním údajům: <Mail />
         </li>
+        {hasPhone && (
+          <li>
+            Telefon:{" "}
+            <a href={phoneHref} className="link">
+              {phone}
+            </a>
+          </li>
+        )}
       </ul>
       <p>
         Správce nejmenoval pověřence pro ochranu osobních údajů – podle čl. 37 GDPR k tomu není
@@ -93,11 +114,8 @@ export default function OchranaOsobnichUdaju() {
       <h2>4. Doba uložení</h2>
       <ul>
         <li>Poptávky, ze kterých nevznikla zakázka: nejdéle 12 měsíců od posledního kontaktu.</li>
-        <li>
-          Údaje k uzavřené zakázce: po dobu trvání smlouvy a následně po dobu promlčecích lhůt pro
-          případné nároky ze smlouvy.
-        </li>
-        <li>Účetní a daňové doklady: po dobu stanovenou účetními a daňovými předpisy.</li>
+        <li>Údaje k uzavřené zakázce: po dobu trvání smluvního vztahu a 3 roky po jeho ukončení.</li>
+        <li>Daňové a účetní doklady: 10 let od jejich vystavení (zákonná lhůta).</li>
         <li>Technické údaje z provozu webu: jen po dobu nezbytnou k zajištění provozu a bezpečnosti.</li>
       </ul>
 
@@ -106,8 +124,13 @@ export default function OchranaOsobnichUdaju() {
       <ul>
         <li>Vercel Inc. – hosting webu a anonymní měření návštěvnosti,</li>
         <li>FormSubmit (formsubmit.co) – přeposlání obsahu poptávkového formuláře včetně přílohy e-mailem,</li>
-        <li>poskytovatel e-mailové schránky, ve které poptávky přijímáme.</li>
+        <li>poskytovatel e-mailové schránky, ve které poptávky přijímáme,</li>
+        <li>účetní poradci v rozsahu nezbytném pro plnění zákonných povinností.</li>
       </ul>
+      <p>
+        Všechny tyto subjekty jsou smluvně zavázány chránit osobní údaje a zpracovávat je výhradně
+        podle našich pokynů. Osobní údaje neprodáváme třetím stranám.
+      </p>
       <p>
         Zpracovatelé Vercel Inc. a FormSubmit mohou osobní údaje zpracovávat ve Spojených státech
         amerických. Předání do USA probíhá na základě rámce EU-US Data Privacy Framework (rozhodnutí
@@ -141,8 +164,19 @@ export default function OchranaOsobnichUdaju() {
         .
       </p>
 
-      <h2>8. Účinnost</h2>
-      <p>Tyto zásady zpracování osobních údajů jsou účinné od {effectiveFrom}.</p>
+      <h2>8. Zabezpečení osobních údajů</h2>
+      <p>
+        Přijali jsme přiměřená technická a organizační opatření k ochraně osobních údajů, zejména
+        šifrovaný přenos dat (HTTPS/TLS) a přístup k údajům jen pro osoby, které je potřebují k
+        vyřízení zakázky. Přenos dat přes internet ale nelze považovat za absolutně bezpečný.
+      </p>
+
+      <h2>9. Účinnost</h2>
+      <p>
+        Tyto zásady zpracování osobních údajů jsou účinné od {effectiveFrom} a řídí se právem České
+        republiky a nařízením (EU) 2016/679 (GDPR). Aktuální verze je vždy zveřejněna na této
+        stránce.
+      </p>
     </LegalPage>
   );
 }

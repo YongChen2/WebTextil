@@ -13,40 +13,42 @@ export const siteUrl = (
 /** Obchodní značka zobrazovaná na webu. */
 export const brand = "Jinsu Studio";
 
+/*
+ * Údaje provozovatele přebírá web z topprofitdesign.cz (stejná firma TPT funding s.r.o.);
+ * mají přednost před ARES. DIČ a spisovou značku topprofitdesign.cz neuvádí – ty jsou z ARES.
+ */
+
 /** Právní název provozovatele. */
 export const name = "TPT funding s.r.o.";
 
-export const ico = "190 67 640";
+export const ico = "19067640";
 
 /**
- * Sídlo společnosti podle obchodního rejstříku (ARES, zápis ze dne 20. 8. 2026).
- * Není to dílna ani provozovna – na webu se vždy zobrazuje s označením `addressLabel`.
+ * Sídlo společnosti. Není to dílna ani provozovna –
+ * na webu se vždy zobrazuje s označením `addressLabel`.
  */
 export const address = {
-  street: "Kurzova 2222/16",
-  postalCode: "155 00",
-  city: "Praha 5 – Stodůlky",
+  street: "Bělehradská 858/23",
+  postalCode: "120 00",
+  city: "Praha 2 – Vinohrady",
   country: "CZ",
 } as const;
 
 export const addressLabel = "Sídlo společnosti";
 
-/** Spisová značka podle ARES: C 380929 vedená u Městského soudu v Praze. */
+/** Spisová značka (ARES): C 380929 vedená u Městského soudu v Praze. */
 export const registry =
   "Zapsáno v OR u Městského soudu v Praze, oddíl C, vložka 380929";
 
 /** DIČ = "CZ" + IČO. */
 export const dic = `CZ${ico.replace(/\s/g, "")}`;
 
-/**
- * Plátce DPH – podle sdělení provozovatele ano. Registr plátců DPH (ADIS) ani VIES
- * to k 10. 10. 2026 ještě nepotvrdily (registrace může být čerstvá).
- */
-export const vatPayer = true;
+/** Plátce DPH – podle obchodních podmínek topprofitdesign.cz ne („vyhrazuje si právo stát se plátcem DPH“). */
+export const vatPayer = false;
 
 /** Telefon – `null` = na webu se nezobrazuje. */
-// Typ přes `as`, aby TypeScript hodnotu null nezúžil a šlo ji později jen přepsat na řetězec.
-export const phone = null as string | null;
+// Typ přes `as`, aby TypeScript hodnotu nezúžil a šlo ji přepsat i na null.
+export const phone = "+420 730 336 337" as string | null;
 export const email: string = "info@jinsustudio.cz";
 
 /** Hlavní sdělení: H1 v heru, titulek stránky, Open Graph a sdílení. */
