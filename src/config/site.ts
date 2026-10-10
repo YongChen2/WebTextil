@@ -44,7 +44,7 @@ export const registry =
 export const dic = `CZ${ico.replace(/\s/g, "")}`;
 
 /** Plátce DPH – podle obchodních podmínek topprofitdesign.cz ne („vyhrazuje si právo stát se plátcem DPH“). */
-export const vatPayer = false;
+export const vatPayer: boolean = false;
 
 /** Telefon – `null` = na webu se nezobrazuje. */
 // Typ přes `as`, aby TypeScript hodnotu nezúžil a šlo ji přepsat i na null.
