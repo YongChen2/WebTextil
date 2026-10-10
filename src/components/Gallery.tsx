@@ -24,19 +24,31 @@ export function Gallery({ tone }: { tone: Tone }) {
                 <path d="M12 11v6" strokeLinecap="round" />
                 <circle cx="12" cy="7.5" r="0.9" fill="currentColor" stroke="none" />
               </svg>
-              <p className="leading-relaxed text-ink/75">
-                <strong className="font-semibold text-ink">{galleryNote.lead}</strong> {galleryNote.text}
-              </p>
+              <div className="min-w-0 flex-1">
+                <p className="leading-relaxed text-ink/75">
+                  <strong className="font-semibold text-ink">{galleryNote.lead}</strong> {galleryNote.text}
+                </p>
+                <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
+                  <a href={portfolioCta.href} className="btn w-full text-center sm:w-auto">
+                    {portfolioCta.button}
+                  </a>
+                  {portfolioCta.email && (
+                    <p className="text-sm text-ink/70">
+                      {portfolioCta.emailText}{" "}
+                      <a
+                        href={`mailto:${portfolioCta.email}?subject=${encodeURIComponent(portfolioCta.emailSubject)}`}
+                        className="link"
+                      >
+                        {portfolioCta.email}
+                      </a>
+                    </p>
+                  )}
+                </div>
+              </div>
             </div>
           </Reveal>
         )}
         <GalleryGrid items={items} />
-        <Reveal className="mt-20 flex flex-col gap-8 border-t border-ink pt-10 md:mt-28 md:flex-row md:items-center md:justify-between">
-          <h3 className="font-serif text-3xl leading-tight tracking-[-0.02em] md:text-4xl">{portfolioCta.title}</h3>
-          <a href={portfolioCta.href} className="btn-outline self-start md:self-auto">
-            {portfolioCta.button}
-          </a>
-        </Reveal>
       </div>
     </section>
   );

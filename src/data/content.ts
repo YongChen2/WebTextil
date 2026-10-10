@@ -1,5 +1,5 @@
 import type { SlotId } from "@/config/images";
-import { claims } from "@/config/site";
+import { claims, email } from "@/config/site";
 
 /** Jednotná formulace pro technologie, které nevyrábíme ve vlastní dílně (výšivka, sítotisk, DTF). */
 export const partnerProduction = "ve spolupráci s partnerskou výrobou na profesionálních strojích";
@@ -108,12 +108,15 @@ export const galleryNote: { lead: string; text: string } | null = {
   text: "Zakázky našich zákazníků obsahují jejich loga, grafiku a další autorská díla, ke kterým nám nepřísluší právo je veřejně šířit. Z tohoto důvodu a na přání zákazníků fotky jejich zakázek nezveřejňujeme. Ukázky reálných realizovaných zakázek vám rádi zašleme e-mailem na vyžádání.",
 };
 
-/** Blok pod galerií – vysvětlení je v info boxu nad galerií, tady jen výzva. */
+/** Tlačítko v info boxu galerie – žádost o ukázky reálných zakázek. */
 export const portfolioCta = {
-  title: "Chcete vidět naše reálné zakázky?",
-  button: "Vyžádat ukázky zakázek",
+  button: "Požádat o reálné fotky zakázek",
   /** Odkaz na formulář s předvyplněnou službou (viz inquiryPresets). */
   href: "/?predmet=portfolio#kontakt",
+  /** Alternativa k formuláři – přímo e-mail. */
+  email,
+  emailText: "nebo napište na",
+  emailSubject: "Ukázky zakázek",
 };
 
 /**
