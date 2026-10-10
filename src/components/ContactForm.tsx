@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import Link from "next/link";
 import { FILE_ACCEPT, validateInquiry, type InquiryErrors } from "@/lib/inquiry-shared";
 import { claims, email as recipient, inquiryEndpoint, inquiryServices } from "@/config/site";
+import { inquiryPresets } from "@/data/content";
 
 type Status =
   | { state: "idle" }
@@ -63,6 +64,18 @@ function toSubmission(data: FormData) {
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>({ state: "idle" });
+  const formRef = useRef<HTMLFormElement>(null);
+
+  // Předvyplnění podle ?predmet=… (např. tlačítko „Vyžádat portfolio“ pod galerií).
+  useEffect(() => {
+    const preset = inquiryPresets[new URLSearchParams(window.location.search).get("predmet") ?? ""];
+    const form = formRef.current;
+    if (!preset || !form) return;
+    const sluzba = form.elements.namedItem("sluzba");
+    const zprava = form.elements.namedItem("zprava");
+    if (sluzba instanceof HTMLSelectElement) sluzba.value = preset.sluzba;
+    if (zprava instanceof HTMLTextAreaElement && !zprava.value) zprava.value = preset.zprava;
+  }, []);
   const errors = status.state === "error" ? status.errors : undefined;
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -129,7 +142,7 @@ export function ContactForm() {
   });
 
   return (
-    <form onSubmit={onSubmit} noValidate className="space-y-6" aria-busy={sending}>
+    <form ref={formRef} onSubmit={onSubmit} noValidate className="space-y-6" aria-busy={sending}>
       <div className="grid gap-6 sm:grid-cols-2">
         <Label text="Jméno a příjmení *" name="jmeno" errors={errors}>
           <input name="jmeno" type="text" maxLength={100} autoComplete="name" className={inputClass} {...a11y("jmeno")} />

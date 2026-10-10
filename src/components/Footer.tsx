@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { footerPhotoNote } from "@/data/content";
 import {
   address,
   addressLabel,
@@ -70,6 +71,7 @@ export function Footer() {
       <div className="container-x mt-12 border-t border-ink/10 pt-6 text-xs text-ink/60">
         <p>{registry}</p>
         <p className="mt-1">© {name}</p>
+        <p className="mt-1">{footerPhotoNote}</p>
       </div>
     </footer>
   );

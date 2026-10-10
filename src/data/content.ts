@@ -98,3 +98,29 @@ export const steps = [
     text: "Zakázku vyrobíme, zkontrolujeme každý kus a předáme osobně nebo odešleme přepravcem.",
   },
 ];
+
+/** Drobný text pod nadpisem galerie. `null` = nezobrazí se. */
+export const galleryNote: string | null = "Ilustrační ukázky. Fotky skutečných zakázek doplníme.";
+
+/** Blok pod galerií – portfolio reálných zakázek posíláme jen na vyžádání. */
+export const portfolioCta = {
+  title: "Chcete vidět naše reálné zakázky?",
+  text: "Fotografie na webu jsou ilustrační. Portfolio s fotkami z realizovaných zakázek vám rádi pošleme na vyžádání.",
+  button: "Vyžádat portfolio",
+  /** Odkaz na formulář s předvyplněnou službou (viz inquiryPresets). */
+  href: "/?predmet=portfolio#kontakt",
+};
+
+/**
+ * Předvyplnění poptávkového formuláře podle parametru ?predmet=… v URL.
+ * `sluzba` musí být jedna z možností inquiryServices v src/config/site.ts.
+ */
+export const inquiryPresets: Record<string, { sluzba: string; zprava: string }> = {
+  portfolio: {
+    sluzba: "Portfolio",
+    zprava: "Dobrý den, prosím o zaslání portfolia s fotkami realizovaných zakázek.",
+  },
+};
+
+/** Poznámka v patičce. */
+export const footerPhotoNote = "Fotografie na webu jsou ilustrační.";

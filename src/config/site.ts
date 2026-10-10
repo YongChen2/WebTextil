@@ -80,7 +80,7 @@ const hasFormSubmitId = formSubmitId.trim() !== "" && formSubmitId !== FORMSUBMI
 export const inquiryEndpoint = `https://formsubmit.co/ajax/${hasFormSubmitId ? formSubmitId : email}`;
 
 /** Možnosti pole „Služba“ ve formuláři. */
-export const inquiryServices = ["Potisk triček", "Našívky", "Úpravy sak", "Jiné"] as const;
+export const inquiryServices = ["Potisk triček", "Našívky", "Úpravy sak", "Portfolio", "Jiné"] as const;
 
 /**
  * Tvrzení o provozu, která je potřeba potvrdit s klientem před spuštěním.
@@ -178,9 +178,6 @@ export const faq: { question: string; answer: string }[] = [
     answer: "Ano, textil zajistíme. Poradíme s výběrem materiálu, střihu i velikostí.",
   },
 ];
-
-/** Drobný text pod nadpisem galerie. Nastavte na `null`, až budou fotky skutečných zakázek. */
-export const galleryNote: string | null = "Ilustrační ukázky. Fotky skutečných zakázek doplníme.";
 
 /**
  * Showroom / provozovna pro zákazníky. Dokud je `enabled: false`, nezobrazuje se

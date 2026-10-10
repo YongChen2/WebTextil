@@ -1,5 +1,4 @@
-import { galleryNote } from "@/config/site";
-import { gallery } from "@/data/content";
+import { gallery, galleryNote, portfolioCta } from "@/data/content";
 import { resolveSlot } from "@/lib/images";
 import { GalleryGrid } from "./GalleryGrid";
 import { Reveal } from "./Reveal";
@@ -19,6 +18,15 @@ export function Gallery({ tone }: { tone: Tone }) {
           {galleryNote && <p className="mt-6 text-sm text-ink/60">{galleryNote}</p>}
         </Reveal>
         <GalleryGrid items={items} />
+        <Reveal className="mt-20 grid gap-8 border-t border-ink pt-10 md:mt-28 lg:grid-cols-[1fr_1.4fr] lg:gap-24">
+          <h3 className="font-serif text-3xl leading-tight tracking-[-0.02em] md:text-4xl">{portfolioCta.title}</h3>
+          <div>
+            <p className="max-w-xl text-lg leading-relaxed text-ink/70">{portfolioCta.text}</p>
+            <a href={portfolioCta.href} className="btn-outline mt-8">
+              {portfolioCta.button}
+            </a>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
