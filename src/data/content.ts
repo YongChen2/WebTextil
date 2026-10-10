@@ -137,9 +137,19 @@ export const footerPhotoNote = "Fotografie na webu jsou ilustrační (Unsplash a
 /** O nás – „Kdo za tím stojí“. Fotka se nastavuje v src/config/images.ts (slot „tym“). */
 export const teamLead = {
   name: "Jin Chen",
-  role: "Zakladatel a vedoucí studia",
-  text: "Hlídá, aby každá zakázka prošla od náhledu přes výrobu až po kontrolu kvality stejnýma rukama. Studentům na odborné praxi dělá mentora – ukáže jim celý postup od přípravy grafiky po předání hotového kusu zákazníkovi.",
-  photoAlt: "Jin Chen, zakladatel a vedoucí studia",
+  role: "Vedoucí studia a mentor studentů",
+  text: "Spravuje a řídí provoz studia, komunikuje se zákazníky i s partnerskou výrobou a vede studenty na odborné praxi.",
+  photoAlt: "Jin Chen, vedoucí studia a mentor studentů",
+};
+
+/** Vazba na mateřské studio – O nás („Kdo za tím stojí“) a patička. */
+export const parentStudio = {
+  name: "Top Profit Design",
+  url: "https://topprofitdesign.cz",
+  /** Krátká zmínka (patička, O nás). */
+  short: "Jinsu Studio je součástí",
+  /** Úvod bloku „Kdo za tím stojí“ – provozovatele doplní komponenta z configu. */
+  intro: "Jinsu Studio vzniklo jako textilní větev studia",
 };
 
 /** O nás – „Vybavení dílny“. */
@@ -166,9 +176,9 @@ export const praxe = {
   ],
   howTitle: "Jak praxe probíhá",
   how: [
-    { label: "Odpovědná osoba (mentor)", value: "Jin Chen" },
+    { label: "Odpovědná osoba (mentor)", value: "Jin Chen, vedoucí studia" },
     { label: "Pracovní doba", value: "Dle dohody se školou" },
-    { label: "Místo", value: workshop.address },
+    { label: "Místo", value: workshop.address ?? workshop.fallback },
     { label: "Hodnocení a docházka", value: "Průběžně vedeme docházku a na konci praxe vyplníme hodnocení žáka pro školu." },
   ],
   safety: [

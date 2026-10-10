@@ -38,11 +38,13 @@ export const addressLabel = "Sídlo společnosti";
 
 /**
  * Provozovna / dílna – místo, kde se zakázky vyrábějí (liší se od sídla).
- * `[DOPLNIT …]` se na webu zobrazuje viditelně, dokud se nevyplní.
+ * `address: null` = zatím se neuvádí: blok v kontaktu a patičce se skryje,
+ * na /praxe se zobrazí `fallback`.
  */
 export const workshop = {
   label: "Provozovna / dílna",
-  address: "[DOPLNIT adresa provozovny]",
+  address: null as string | null,
+  fallback: "Upřesníme škole při domluvě praxe",
 };
 
 /** Spisová značka (ARES): C 380929 vedená u Městského soudu v Praze. */

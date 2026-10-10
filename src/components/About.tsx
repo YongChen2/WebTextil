@@ -1,5 +1,5 @@
-import { claims } from "@/config/site";
-import { equipment, partnerProduction, teamLead } from "@/data/content";
+import { claims, name } from "@/config/site";
+import { equipment, parentStudio, partnerProduction, teamLead } from "@/data/content";
 import { resolveSlot } from "@/lib/images";
 import { Media } from "./Media";
 import { Reveal } from "./Reveal";
@@ -49,7 +49,14 @@ export function About({ tone }: { tone: Tone }) {
       <div className="container-x mt-20 grid gap-16 md:mt-32 lg:grid-cols-2 lg:gap-24">
         <Reveal>
           <h3 className="eyebrow">Kdo za tím stojí</h3>
-          <div className="mt-8 flex flex-col gap-8 border-t border-ink pt-8 sm:flex-row">
+          <p className="mt-8 border-t border-ink pt-8 leading-relaxed text-ink/70">
+            {parentStudio.intro}{" "}
+            <a href={parentStudio.url} className="link" target="_blank" rel="noopener">
+              {parentStudio.name}
+            </a>
+            . Provozovatelem je {name}.
+          </p>
+          <div className="mt-8 flex flex-col gap-8 border-t border-ink/10 pt-8 sm:flex-row">
             {/* Fotka jen tehdy, když je v kolonce „tym“ reálná fotka – žádný placeholder. */}
             {leadImage.available && (
               <div className="relative aspect-[4/5] w-40 shrink-0 overflow-hidden">

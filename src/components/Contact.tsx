@@ -57,10 +57,12 @@ export function Contact({ tone }: { tone: Tone }) {
               <br />
               {address.postalCode} {address.city}
             </p>
-            <p className="pt-4 text-ink/70">
-              <span className="eyebrow block pb-2">{workshop.label}</span>
-              {workshop.address}
-            </p>
+            {workshop.address && (
+              <p className="pt-4 text-ink/70">
+                <span className="eyebrow block pb-2">{workshop.label}</span>
+                {workshop.address}
+              </p>
+            )}
           </address>
           {showroom.enabled && showroom.mapEmbedUrl && (
             <iframe
