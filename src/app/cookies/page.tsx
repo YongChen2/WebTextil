@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function Cookies() {
   return (
-    <LegalPage title="Cookies" pendingReview={false}>
+    <LegalPage title="Cookies">
       <p>
         Web {brand} nepoužívá marketingové ani analytické cookies. Proto se vás při návštěvě
         neptáme na souhlas a nezobrazujeme cookie lištu.

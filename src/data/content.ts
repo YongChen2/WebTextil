@@ -101,7 +101,7 @@ export const steps = [
 
 /** Drobný text pod nadpisem galerie. `null` = nezobrazí se. */
 export const galleryNote: string | null =
-  "Fotografie v galerii jsou ilustrační. Na přání našich zákazníků fotky jejich zakázek veřejně nezveřejňujeme. Ukázky reálných realizovaných zakázek vám rádi zašleme e-mailem na vyžádání.";
+  "Fotografie v galerii jsou ilustrační. Na přání našich zákazníků fotky jejich zakázek nezveřejňujeme. Ukázky reálných realizovaných zakázek vám rádi zašleme e-mailem na vyžádání.";
 
 /** Blok pod galerií – ukázky reálných zakázek posíláme jen e-mailem na vyžádání. */
 export const portfolioCta = {

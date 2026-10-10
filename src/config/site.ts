@@ -19,20 +19,27 @@ export const name = "TPT funding s.r.o.";
 export const ico = "190 67 640";
 
 /**
- * Sídlo společnosti (zapsané v OR). Není to dílna ani provozovna –
- * na webu se vždy zobrazuje s označením `addressLabel`.
+ * Sídlo společnosti podle obchodního rejstříku (ARES, zápis ze dne 20. 8. 2026).
+ * Není to dílna ani provozovna – na webu se vždy zobrazuje s označením `addressLabel`.
  */
 export const address = {
-  street: "Bělehradská 858/23",
-  postalCode: "120 00",
-  city: "Praha 2 – Vinohrady",
+  street: "Kurzova 2222/16",
+  postalCode: "155 00",
+  city: "Praha 5 – Stodůlky",
   country: "CZ",
 } as const;
 
 export const addressLabel = "Sídlo společnosti";
 
+/** Spisová značka podle ARES: C 380929 vedená u Městského soudu v Praze. */
 export const registry =
   "Zapsáno v OR u Městského soudu v Praze, oddíl C, vložka 380929";
+
+// DOPLNIT: DIČ – ARES ho neuvádí (společnost není v registru plátců DPH). Zobrazuje se na právních stránkách.
+export const dic = "[DOPLNIT]";
+
+/** Plátce DPH – podle ARES ne (registr DPH: neexistující záznam, stav k 4. 9. 2026). */
+export const vatPayer = false;
 
 /** Telefon – `null` = na webu se nezobrazuje. */
 // Typ přes `as`, aby TypeScript hodnotu null nezúžil a šlo ji později jen přepsat na řetězec.
