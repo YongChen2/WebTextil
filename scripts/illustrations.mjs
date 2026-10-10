@@ -2,7 +2,7 @@
  * Generátor produktových ilustrací pro obrazové kolonky webu.
  * Každá ilustrace je ručně kreslené SVG převedené přes sharp do WebP.
  *
- * Spuštění: node scripts/illustrations.mjs [slot ...]
+ * Spuštění: node scripts/illustrations.mjs [slot ...]   (bez argumentů jen nášivky, viz DEFAULT_SLOTS)
  * Volitelně PREVIEW_DIR=/cesta uloží i JPG náhledy pro kontrolu.
  */
 import fs from "node:fs";
@@ -327,6 +327,39 @@ const motifs = {
           `<path d="M${cx - r * 0.8},${cy + r * k} q${r * 0.2},-${r * 0.2} ${r * 0.4},0 t${r * 0.4},0 t${r * 0.4},0 t${r * 0.4},0" fill="none" stroke="${i % 2 ? b : a}" stroke-width="${r * 0.12}" stroke-linecap="round"/>`,
       )
       .join(""),
+  // Slunce: satinový kotouč a dvanáct paprsků
+  sun: (cx, cy, r, a = C.gold, b = C.cream) => {
+    const rays = Array.from({ length: 12 }, (_, i) => {
+      const ang = (i / 12) * Math.PI * 2;
+      const p = (k, off) => `${(cx + Math.cos(ang + off) * r * k).toFixed(1)},${(cy + Math.sin(ang + off) * r * k).toFixed(1)}`;
+      return `${p(0.5, -0.13)} ${p(0.82, 0)} ${p(0.5, 0.13)}`;
+    });
+    return (
+      rays.map((pts) => `<polygon points="${pts}" fill="${b}"/><polygon points="${pts}" fill="url(#satinC)"/>`).join("") +
+      satin(`M${cx - r * 0.4},${cy} a${r * 0.4},${r * 0.4} 0 1 0 ${r * 0.8},0 a${r * 0.4},${r * 0.4} 0 1 0 -${r * 0.8},0`, a, "satinA") +
+      `<circle cx="${cx}" cy="${cy}" r="${r * 0.4}" fill="none" stroke="${dark(a, 0.3)}" stroke-width="3" stroke-dasharray="3 4"/>`
+    );
+  },
+  // Květina: šest okvětních lístků kolem středu
+  flower: (cx, cy, r, petal = C.cream, center = C.gold, leaf = "#7d8a5a") => {
+    const leaves = [-0.55, 0.55]
+      .map((rot) => `<g transform="rotate(${(rot * 180) / Math.PI} ${cx} ${cy})">${satin(`M${cx},${cy} q${r * 0.28},${r * 0.45} 0,${r * 0.85} q-${r * 0.28},-${r * 0.45} 0,-${r * 0.85}`, leaf, "satinB")}</g>`)
+      .join("");
+    const petals = Array.from({ length: 6 }, (_, i) =>
+      `<g transform="rotate(${i * 60} ${cx} ${cy})">${satin(`M${cx},${cy} q${r * 0.3},-${r * 0.35} 0,-${r * 0.68} q-${r * 0.3},${r * 0.33} 0,${r * 0.68}`, i % 2 ? petal : light(petal, 0.25), i % 2 ? "satinA" : "satinB")}</g>`,
+    ).join("");
+    return leaves + petals + satin(`M${cx - r * 0.17},${cy} a${r * 0.17},${r * 0.17} 0 1 0 ${r * 0.34},0 a${r * 0.17},${r * 0.17} 0 1 0 -${r * 0.34},0`, center, "satinC");
+  },
+  // Geometrický motiv: do sebe vložené kosočtverce ve střídavých barvách
+  geo: (cx, cy, r, cols = [C.gold, C.cream, C.ink, C.gold]) =>
+    cols
+      .map((c, i) => {
+        const k = r * (0.78 - i * 0.18);
+        const d = `M${cx},${cy - k} L${cx + k},${cy} L${cx},${cy + k} L${cx - k},${cy} Z`;
+        return satin(d, c, i % 2 ? "satinA" : "satinB");
+      })
+      .join("") +
+    [-1, 1].map((sx) => `<path d="M${cx + sx * r * 0.86},${cy - r * 0.3} L${cx + sx * r * 0.86},${cy + r * 0.3}" stroke="${cols[0]}" stroke-width="${r * 0.08}"/>`).join(""),
 };
 
 /** Cívka nití (pohled z boku, naležato). */
@@ -755,18 +788,24 @@ const scenes = {
       ${g("translate(282 6) scale(1.04)", tshirt(C.charcoal, printMark(500, 430, 86)))}
       ${g("translate(1000 905) rotate(-24)", squeegee(300))}`,
   },
+  // Sada šesti vlastních vyšívaných nášivek (hora, vlna, slunce, hvězda, květina, geometrie) na lnu.
+  // Formát 4:5 na výšku – stejný poměr jako obrazová kolonka služby.
   "sluzba-nasivky": {
-    w: 1600,
-    h: 1067,
-    alt: "Vyšívané našívky s geometrickými motivy, cívka zlaté nitě a jehla",
+    file: "nasivky-sada.webp",
+    w: 1280,
+    h: 1600,
+    alt: "Sada šesti vyšívaných nášivek s motivy hor, vln, slunce, hvězdy, květiny a geometrického vzoru na lněné látce",
+    quality: 62, // jemná textura lnu se špatně komprimuje – cíl pod 300 kB
     svg: (W, H) => `
       ${bgLinen(W, H)}
-      ${patch({ cx: 690, cy: 500, r: 220, base: C.ink, ring: C.gold, motif: motifs.mountains(690, 500, 200) })}
-      ${patch({ cx: 1010, cy: 330, r: 135, base: C.cream, ring: C.ink, motif: motifs.arcs(1010, 330, 120) })}
-      ${patch({ cx: 1030, cy: 700, r: 120, base: C.slate, ring: C.cream, motif: motifs.star(1030, 700, 110) })}
-      ${g("translate(470 830) rotate(-12)", spool(C.gold, 180))}
-      ${line("M640,860 C720,880 760,940 860,930 C930,925 960,890 1010,900", C.gold, 2.4, 0.9)}
-      ${g("translate(860 935) rotate(-8)", needle(230))}`,
+      ${patch({ cx: 400, cy: 330, r: 230, base: C.ink, ring: C.gold, motif: motifs.mountains(400, 330, 210) })}
+      ${patch({ cx: 905, cy: 420, r: 200, base: C.cream, ring: C.ink, motif: motifs.waves(905, 420, 185, C.ink, C.gold) })}
+      ${patch({ cx: 360, cy: 820, r: 195, base: C.slate, ring: C.cream, motif: motifs.sun(360, 820, 180) })}
+      ${patch({ cx: 880, cy: 880, r: 215, base: C.ink, ring: C.cream, motif: motifs.star(880, 880, 200) })}
+      ${patch({ cx: 420, cy: 1290, r: 215, base: C.stone, ring: C.goldDeep, motif: motifs.flower(420, 1290, 200, "#f7f2e8", C.gold) })}
+      ${patch({ cx: 920, cy: 1330, r: 190, base: C.slate, ring: C.gold, motif: motifs.geo(920, 1330, 175) })}
+      ${line("M640,1560 C700,1500 760,1530 820,1480 C880,1440 980,1470 1060,1420", C.gold, 2.4, 0.9)}
+      ${g("translate(1040 1430) rotate(-28)", needle(200))}`,
   },
   "sluzba-saka": {
     w: 1600,
@@ -794,9 +833,11 @@ const scenes = {
       ${g("translate(366 184) scale(1.4) rotate(2 200 266)", foldedTee("#f7f4ee", printMark(200, 230, 58)))}`,
   },
   "galerie-02": {
+    file: "nasivka-hory.webp",
     w: 1200,
     h: 1200,
-    alt: "Detail velké vyšívané našívky s motivem hor a slunce, cívka nitě a jehla",
+    alt: "Detail vyšívané nášivky s motivem hor a slunce na tmavé látce, cívka nitě a jehla",
+    quality: 70,
     svg: (W, H) => `
       ${bgLinen(W, H)}
       ${piece({ d: "M120,180 L1010,140 L1060,1010 L160,1060 Z", fill: C.slate, pattern: "twill", texture: 0.6, shadow: { dx: 10, dy: 24, op: 0.3, f: "shadow" } })}
@@ -921,7 +962,10 @@ const scenes = {
 };
 
 // ---------- výstup ----------
-const only = process.argv.slice(2);
+// Kolonky, které ilustrace skutečně používají. Ostatní scény (dřívější ilustrace) nahradily
+// fotky ze scripts/stock-photos.mjs – vykreslí se jen, když je vyjmenujete jako argumenty.
+const DEFAULT_SLOTS = ["sluzba-nasivky", "galerie-02"];
+const only = process.argv.length > 2 ? process.argv.slice(2) : DEFAULT_SLOTS;
 fs.mkdirSync(OUT, { recursive: true });
 if (PREVIEW) fs.mkdirSync(PREVIEW, { recursive: true });
 
@@ -930,9 +974,9 @@ for (const [slot, sc] of Object.entries(scenes)) {
   uidCounter = 0;
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${sc.w}" height="${sc.h}" viewBox="0 0 ${sc.w} ${sc.h}">${DEFS}${sc.svg(sc.w, sc.h)}</svg>`;
   const img = sharp(Buffer.from(svg), { density: 72 });
-  await img.clone().webp({ quality: 82 }).toFile(path.join(OUT, `${slot}.webp`));
+  await img.clone().webp({ quality: sc.quality ?? 82, effort: 6 }).toFile(path.join(OUT, sc.file ?? `${slot}.webp`));
   if (PREVIEW) await img.clone().resize(800).jpeg({ quality: 82 }).toFile(path.join(PREVIEW, `${slot}.jpg`));
-  console.log(`✓ ${slot}.webp  ${sc.w}×${sc.h}  — ${sc.alt}`);
+  console.log(`✓ ${slot} → ${sc.file ?? `${slot}.webp`}  ${sc.w}×${sc.h}  — ${sc.alt}`);
 }
 
 export const altTexts = Object.fromEntries(Object.entries(scenes).map(([k, v]) => [k, v.alt]));

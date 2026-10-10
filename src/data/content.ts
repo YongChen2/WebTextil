@@ -32,7 +32,7 @@ export const services: Service[] = [
       `Dodání obvykle do ${claims.deliveryTime}`,
     ],
     slot: "sluzba-trika",
-    alt: "Ruka přejíždí stěrkou přes sítotiskový rám na černém tričku",
+    alt: "Bílé a černé bavlněné tričko složené vedle sebe na světlém pozadí",
   },
   {
     id: "nasivky",
@@ -45,7 +45,7 @@ export const services: Service[] = [
       `Vzorek ${claims.sampleTime}`,
     ],
     slot: "sluzba-nasivky",
-    alt: "Detail vyšívané našívky s logem na tmavé látce",
+    alt: "Sada šesti vyšívaných nášivek s motivy hor, vln, slunce, hvězdy, květiny a geometrického vzoru na lněné látce",
   },
   {
     id: "saka",
@@ -58,7 +58,7 @@ export const services: Service[] = [
       "Firemní a školní uniformy v sériích",
     ],
     slot: "sluzba-saka",
-    alt: "Krejčí připevňuje špendlíky na rukáv tmavého saka",
+    alt: "Dvě tmavě modrá saka na dřevěných ramínkách před světlou stěnou",
   },
 ];
 
@@ -69,15 +69,15 @@ export type GalleryItem = {
 };
 
 export const gallery: GalleryItem[] = [
-  { slot: "galerie-01", category: "tricka", alt: "Bílá trička s jednobarevným sítotiskem složená na stole" },
-  { slot: "galerie-02", category: "nasivky", alt: "Sada kulatých vyšívaných našívek pro sportovní klub" },
-  { slot: "galerie-03", category: "saka", alt: "Tmavomodré sako s našitým emblémem na náprsní kapse" },
-  { slot: "galerie-04", category: "tricka", alt: "Černé tričko s barevným DTF potiskem na zádech" },
-  { slot: "galerie-05", category: "nasivky", alt: "Tkaná našívka s názvem firmy na pracovní bundě" },
-  { slot: "galerie-06", category: "saka", alt: "Detail zkráceného rukávu saka s ručně přišitými knoflíky" },
-  { slot: "galerie-07", category: "tricka", alt: "Série triček v různých velikostech pro firemní akci" },
-  { slot: "galerie-08", category: "nasivky", alt: "Našívky se suchým zipem připravené k expedici" },
-  { slot: "galerie-09", category: "saka", alt: "Školní sako s vyšitým monogramem na klopě" },
+  { slot: "galerie-01", category: "tricka", alt: "Bílé bavlněné tričko na dřevěném ramínku" },
+  { slot: "galerie-02", category: "nasivky", alt: "Detail vyšívané nášivky s motivem hor a slunce na tmavé látce, cívka nitě a jehla" },
+  { slot: "galerie-03", category: "saka", alt: "Detail rukávu tmavě modrého saka se třemi knoflíky" },
+  { slot: "galerie-04", category: "tricka", alt: "Tři černá trička na dřevěných ramínkách" },
+  { slot: "galerie-05", category: "nasivky", alt: "Vyšívací rámeček s jednoduchými barevnými stehy na lněné látce" },
+  { slot: "galerie-06", category: "saka", alt: "Detail černého saka s klopou a kapsou na dřevěném stole" },
+  { slot: "galerie-07", category: "tricka", alt: "Tři složená trička v tmavě modré, béžové a bílé barvě" },
+  { slot: "galerie-08", category: "nasivky", alt: "Řada dřevěných cívek s barevnými nitěmi" },
+  { slot: "galerie-09", category: "saka", alt: "Řada lněných sak v různých barvách na kovové tyči" },
 ];
 
 export const steps = [
