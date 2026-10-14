@@ -15,6 +15,17 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Když scroll řídí Lenis, nativní smooth by se s ním pral. */
+html.lenis {
+  scroll-behavior: auto;
+}
+
+/* Výchozí stav pro <Reveal>; GSAP ho při vstupu do viewportu animuje pryč. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;

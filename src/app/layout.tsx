@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { brand, description, siteUrl, tagline } from "@/config/site";
+import { SmoothScroll } from "@/components/SmoothScroll";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 
 const inter = Inter({
@@ -64,7 +66,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </noscript>
       </head>
       <body className="min-h-screen">
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
         {/* Vercel Analytics měří anonymně a bez cookies – cookie lišta není potřeba. */}
         <Analytics />
       </body>
